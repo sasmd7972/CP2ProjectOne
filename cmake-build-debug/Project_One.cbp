@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Project_One"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Project_One">
+				<Option output="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Project_One.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/Programs/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/Programs/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="D:/Programs/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/Programs/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/Programs/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/Programs/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 Project_One"/>
+					<CompileFile command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Project_One/fast">
+				<Option output="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Project_One.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/Programs/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/Programs/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="D:/Programs/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/Programs/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/Programs/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/Programs/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 Project_One/fast"/>
+					<CompileFile command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Programs/MinGW/mingw32/bin/mingw32-make.exe -f &quot;D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/Player.cpp">
+			<Option target="Project_One"/>
+		</Unit>
+		<Unit filename="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/Player.h">
+			<Option target="Project_One"/>
+		</Unit>
+		<Unit filename="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/Vehicle.cpp">
+			<Option target="Project_One"/>
+		</Unit>
+		<Unit filename="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/Vehicle.h">
+			<Option target="Project_One"/>
+		</Unit>
+		<Unit filename="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/main.cpp">
+			<Option target="Project_One"/>
+		</Unit>
+		<Unit filename="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
