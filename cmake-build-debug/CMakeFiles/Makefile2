@@ -54,19 +54,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\Programs\Clion\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "D:\Programs\Clion\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\JetBrains\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "D:\Flash Drive\College\2020\ComputationalProblemSolvingTwo\Assignments\Project One"
+CMAKE_SOURCE_DIR = "D:\My Junk\CPET 321 (Comp)\DP 1\CP2ProjectOne"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "D:\Flash Drive\College\2020\ComputationalProblemSolvingTwo\Assignments\Project One\cmake-build-debug"
+CMAKE_BINARY_DIR = "D:\My Junk\CPET 321 (Comp)\DP 1\CP2ProjectOne\cmake-build-debug"
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -93,14 +93,14 @@ clean: CMakeFiles/Project_One.dir/clean
 CMakeFiles/Project_One.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project_One.dir\build.make CMakeFiles/Project_One.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project_One.dir\build.make CMakeFiles/Project_One.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Flash Drive\College\2020\ComputationalProblemSolvingTwo\Assignments\Project One\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4 "Built target Project_One"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\My Junk\CPET 321 (Comp)\DP 1\CP2ProjectOne\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4 "Built target Project_One"
 .PHONY : CMakeFiles/Project_One.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Project_One.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Flash Drive\College\2020\ComputationalProblemSolvingTwo\Assignments\Project One\cmake-build-debug\CMakeFiles" 4
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\My Junk\CPET 321 (Comp)\DP 1\CP2ProjectOne\cmake-build-debug\CMakeFiles" 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Project_One.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Flash Drive\College\2020\ComputationalProblemSolvingTwo\Assignments\Project One\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\My Junk\CPET 321 (Comp)\DP 1\CP2ProjectOne\cmake-build-debug\CMakeFiles" 0
 .PHONY : CMakeFiles/Project_One.dir/rule
 
 # Convenience name for target.

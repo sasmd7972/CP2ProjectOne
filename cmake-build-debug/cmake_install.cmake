@@ -1,4 +1,4 @@
-# Install script for directory: D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One
+# Install script for directory: D:/My Junk/CPET 321 (Comp)/DP 1/CP2ProjectOne
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/Project One/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/My Junk/CPET 321 (Comp)/DP 1/CP2ProjectOne/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
