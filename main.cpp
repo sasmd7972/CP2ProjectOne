@@ -143,7 +143,7 @@ int main() {
                 playerHold = playerList.at(playerId);
                 if(playerHold.resID != 99){//Checks if there is already a reservation.
                     cout << "There is already a reservation at this name." << endl;
-                    cout << "Select modify (M) to edit it, or select delete (D) to delet it." << endl << endl;
+                    cout << "Select modify (M) to edit it, or select delete (D) to delete it." << endl << endl;
                     cout << setfill('-') << setw(60)<<"-"<<endl;
                     continue;
                 }
