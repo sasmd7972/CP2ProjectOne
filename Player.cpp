@@ -4,7 +4,7 @@
 
 #include "Player.h"
 
-Player::Player(string name, int seatAssignmentValue,Seat SeatAssignment){
+Player::Player(int ID, string name, int seatAssignmentValue,Seat SeatAssignment){
     this->ID = ID;
     this->name = name;
     this->seatAssignment = seatAssignment;

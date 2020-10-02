@@ -6,12 +6,12 @@
 
 Vehicle::Vehicle() {
     color = RED;
-    Seat = FrontSeat;
+    seat = FrontSeat;
 }
 
 Vehicle::Vehicle(Color color, Seat seat) {
     this->color = color;
-    this->Seat =seat;
+    this->seat =seat;
 }
 
 void Vehicle::changeColor(Color color){

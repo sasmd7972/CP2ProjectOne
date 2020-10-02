@@ -18,7 +18,7 @@ class Vehicle {
     private:
         Color color;
         //Seat mySeats[];
-        Seat Seat;
+        Seat seat;
 
     public:
         Vehicle();
