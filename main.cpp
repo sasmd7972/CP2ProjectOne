@@ -51,7 +51,7 @@ int main() {
 //----------Admin Variables
 //-----------------------------------------------------------
     string adminPass = "AdminPassword";//Only used by admin to view reservations. Temporary
-    string adminIn = "BLANK";
+    string adminIn = "BLANK";//test
 
 
 
