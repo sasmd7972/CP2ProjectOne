@@ -4,8 +4,10 @@
 #include <vector>
 
 
-#include "../Design Project 1/build-files/Players.h"
-#include "../Design Project 1/build-files/Vehicles.h"
+
+#include "Player.h"
+#include "Vehicle.h"
+
 using namespace std;
 
 int main() {
@@ -23,12 +25,18 @@ int main() {
     vector<string> drivers(6);
     vector<string> teamMembers(18);
     vector<int> playerCredits(18);
+    vector<int> reservationIDs(18);
 //----------Menu & Category Variables
 //-----------------------------------------------------------
-    bool stillInMenu = true;
-    bool stillInCat = true;
+    bool stillInMenu = true; //When false, exits out of the main menu
+    bool stillInCat = true; //When false, exits out of the category selection menu in the Reservation Option
     string userMenuIn = "BLANK";
     char menuChoice = '-';
+
+    bool returnToMenu = false;//Boolean to return to base menu from within other menus.
+
+    string userIDHold = "BLANK";
+    int userIDIn = 99;
 
 
 
@@ -38,14 +46,18 @@ int main() {
     bool validName = false;
     int playerId = -1;
 
-    vector<Players> playerList(18);
-    Players playerHold;//Stores a single player from the vector Needed to use Players() functions
+    vector<Player> playerList(18);
+    Player playerHold;//Stores a single player from the vector Needed to use Players() functions
 
     char selMethod;//How they user wants to select their seat
 
     string requestedVehicle = "BLANK";
-
     string requestedSeat = "BLANK";
+
+//----------OTHERS & MISC
+//-----------------------------------------------------------
+
+
 
 
 //----------Admin Variables
@@ -56,7 +68,7 @@ int main() {
 
 
     //-----------------------------------------------------------
-    //CODE
+    //PROGRAM BEGINS HERE
     //-----------------------------------------------------------
 
 
@@ -78,7 +90,11 @@ int main() {
     //-----------------------------------------------------------
     for (int i = 0; i < 18; i++) {
         holdNames = teamMembers.at(i);
+
+
         playerCredits.at(i) = holdNames.back();
+
+
         holdNames.pop_back();
         holdNames.pop_back();
         teamMembers.at(i) = holdNames;
@@ -90,193 +106,292 @@ int main() {
 //MENU OPTIONS AND DISPLAY BEGINS HERE
 //---------------------------------------------------------
     do {
-            //----------Displays the menu
+        //----------Resets Variables to default values
+        //-----------------------------------------------------------
+        //TODO: Reset variables to default values
+
+
+
+
+
+
+
+
+
+        //----------Displays the menu
+        //-----------------------------------------------------------
+        cout << setfill('-') << setw(60)<<"-"<<endl;
+        cout << "Enter C to create a reservation" << endl;
+        cout << "Enter M to modify your reservation" << endl;
+        cout << "Enter D to delete your reservation" << endl;
+        cout << "Enter V to display the seating diagram" << endl;
+        cout << "Enter S to print the passenger list for a single vehicle" << endl;
+        cout << "Enter R to print the passenger list for a every vehicle" << endl;
+        cout << "Enter E to exit the program" << endl;
+        cout << setfill('-') << setw(60)<<"-"<<endl;
+        cin >> userMenuIn;
+        //----------Checks if their menu choice is an option
+        //-----------------------------------------------------------
+        if(userMenuIn.length() != 1){
+            cout << "Error. Invalid input!"<< endl;
+            cout << "Must be single letter:" << endl;
+            cout << "Try again!" << endl;
+            continue;
+        }
+        menuChoice = userMenuIn.at(0);
+        if(!isalpha(menuChoice)){
+            cout << "Error. Invalid input!"<< endl;
+            cout << "Must be a letter, not a number:" << endl;
+            cout << "Try again!" << endl;
+            continue;
+        }
+        menuChoice = tolower(menuChoice);
+
+        switch (menuChoice) {//Determines which of the menu options was chosen, if any
+            //----------Creates Reservation
             //-----------------------------------------------------------
-                cout << setfill('-') << setw(60)<<"-"<<endl;
-                cout << "Enter C to create a reservation" << endl;
-                cout << "Enter M to modify your reservation" << endl;
-                cout << "Enter D to delete your reservation" << endl;
-                cout << "Enter V to display the seating diagram" << endl;
-                cout << "Enter S to print the passenger list for a single vehicle" << endl;
-                cout << "Enter R to print the passenger list for a every vehicle" << endl;
-                cout << "Enter E to exit the program" << endl;
-                cout << setfill('-') << setw(60)<<"-"<<endl;
-                cin >> userMenuIn;
-            //----------Checks if their menu choice is an option
-            //-----------------------------------------------------------
-            if(userMenuIn.length() != 1){
-                cout << "Error. Invalid input!"<< endl;
-                cout << "Must be single letter:" << endl;
-                cout << "Try again!" << endl;
-                continue;
-            }
-            menuChoice = userMenuIn.at(0);
-            if(!isalpha(menuChoice)){
-                cout << "Error. Invalid input!"<< endl;
-                cout << "Must be a letter, not a number:" << endl;
-                cout << "Try again!" << endl;
-                continue;
-            }
-            menuChoice = tolower(menuChoice);
+            case 'c':
+            cout << "Enter your name to begin: [first last]" << endl;
+            getline(cin, userName);
 
-            switch (menuChoice) {//Determines which of the menu options was chosen, if any
-                //----------Creates Reservation
-                //-----------------------------------------------------------
-                case 'c':
-                cout << "Enter your name to begin: [first last]" << endl;
-                getline(cin, userName);
-
-                for (int i = 0; i < 18; i++) {//checks if their name is in the quidditch.dat file and is not a driver
-                    if (userName == teamMembers.at(i+6)) {
-                        validName = true;
-                        playerId = i;//Player ID is their location in the .dat file // same as ResID
-                        break;
-                    }//end if
-                }//end loop
-
-                if(!validName){//Makes the user reenter name if not in file
-                    cout << userName << " is either a driver or is not a part of the Quidditch Team" << endl;
-                    cout << "Enter your name to begin: [first last]" << endl;
-                    continue;
+            for (int i = 0; i < 18; i++) {//checks if their name is in the quidditch.dat file and is not a driver
+                if (userName == teamMembers.at(i+6)) {
+                    validName = true;
+                    playerId = i;//Player ID is their location in the .dat file // same as ResID
+                    break;
                 }//end if
+            }//end loop
 
-                playerHold = playerList.at(playerId);
-                if(playerHold.resID != 99){//Checks if there is already a reservation.
-                    cout << "There is already a reservation at this name." << endl;
-                    cout << "Select modify (M) to edit it, or select delete (D) to delete it." << endl << endl;
-                    cout << setfill('-') << setw(60)<<"-"<<endl;
+            if(!validName){//Makes the user reenter name if not in file
+                cout << userName << " is either a driver or is not a part of the Quidditch Team" << endl;
+                cout << "Enter your name to begin: [first last]" << endl;
+                continue;
+            }//end if
+
+            playerHold = playerList.at(playerId);
+            if(playerHold.resID != 99){//Checks if there is already a reservation.
+                cout << "There is already a reservation at this name." << endl;
+                cout << "Select modify (M) to edit it, or select delete (D) to delete it." << endl;
+                cout << "Returning to Menu" << endl << endl;
+
+                cout << setfill('-') << setw(60)<<"-"<<endl;
+                continue;
+            }
+            cout << setfill('-') << setw(60)<<"-"<<endl;
+            cout << "Welcome " << userName << endl;
+            cout << "You have " << playerCredits.at(playerId) << " Credits remaining" << endl;
+            cout << setfill('-') << setw(60)<<"-"<<endl;
+
+            //----------Seat Selection
+            //-----------------------------------------------------------
+
+                cout << "How do you want to select your seat?" << endl;
+            do {
+
+                cout << setfill('-') << setw(60)<<"-"<<endl;
+
+                cout << "Enter [C] to search by category" << endl;
+                cout << "Enter [S] to search by specifics" << endl;
+                cout << setfill('-') << setw(60)<<"-"<<endl;
+                userMenuIn = '-';//Sets userMenuIn back to a - for its re-use
+
+                cin >> userMenuIn; //Re-using userMenuIn because it is efficient
+                if(userMenuIn.length() != 1){//Checks if input is a single character
+                    cout << "Error. Invalid input!"<< endl;
+                    cout << "Must be single letter:" << endl;
+                    cout << "Try again!" << endl;
                     continue;
                 }
-                cout << setfill('-') << setw(60)<<"-"<<endl;
-                cout << "Welcome " << userName << endl;
-                cout << "You have " << playerCredits.at(playerId) << " Credits remaining" << endl;
-                cout << setfill('-') << setw(60)<<"-"<<endl;
+                menuChoice = userMenuIn.at(0);
+                if(!isalpha(menuChoice)){//Checks if input is a letter
+                    cout << "Error. Invalid input!"<< endl;
+                    cout << "Must be a letter, not a number:" << endl;
+                    cout << "Try again!" << endl;
+                    continue;
+                }
+                menuChoice = tolower(menuChoice);
 
-                    //----------Seat Selection
-                    //-----------------------------------------------------------
+                switch(menuChoice){
+                    case 'c':
+                        cout << "Enter your requested seat type:" << endl;
+                        cout << setw(2) << "[Front] for a front seat" << endl;
+                        cout << setw(2) << "[Side] for a left or right back seat in a Compact" << endl;
+                        cout << setw(2) << "[Edge] for a left or right back seat in a Sedan" << endl;
+                        cout << setw(2) << "[Middle] for a middle back seat in a Sedan" << endl;
+                        getline(cin, requestedSeat);
 
-                    cout << "How do you want to select your seat?" << endl;
-                do {
-
-                    cout << setfill('-') << setw(60)<<"-"<<endl;
-
-                    cout << "Enter C to search by category" << endl;
-                    cout << "Enter S to search by specifics" << endl;
-                    cout << setfill('-') << setw(60)<<"-"<<endl;
-                    userMenuIn = '-';//Sets userMenuIn back to a - for its re-use
-
-                    cin >> userMenuIn; //Re-using userMenuIn because it is efficient
-                    if(userMenuIn.length() != 1){//Checks if input is a single character
-                        cout << "Error. Invalid input!"<< endl;
-                        cout << "Must be single letter:" << endl;
-                        cout << "Try again!" << endl;
-                        continue;
-                    }
-                    menuChoice = userMenuIn.at(0);
-                    if(!isalpha(menuChoice)){//Checks if input is a letter
-                        cout << "Error. Invalid input!"<< endl;
-                        cout << "Must be a letter, not a number:" << endl;
-                        cout << "Try again!" << endl;
-                        continue;
-                    }
-                    menuChoice = tolower(menuChoice);
-
-                    switch(menuChoice){
-                        case 'c':
-                            cout << "Enter your requested seat type" << endl;
-                            getline(cin, requestedSeat);
-
-
-
-
-                        break;
-                        //-----------------------------------------------------------
-                        case 's':
-                            cout << "Enter your requested vehicle" << endl;
-                            cout <<setw(2)<< "Purple Truck" << endl;
-                            cout <<setw(2)<< "Red Compact" << endl;
-                            cout <<setw(2)<< "Blue Compact" << endl;
-                            cout <<setw(2)<< "Yellow Compact" << endl;
-                            cout <<setw(2)<< "Blue Sedan" << endl;
-                            cout <<setw(2)<< "Green Sedan" << endl;
-                            getline(cin, requestedVehicle);
-
-                            for(int i = 0; i < requestedVehicle.length(); i++) {
-                                if (isalpha(requestedVehicle.at(i))){
-                                    requestedVehicle.at(i) = tolower(requestedVehicle.at(i));
-                                }else{
-                                   cout << "Error! Invalid Vehicle. Returning to Menu" << endl << endl;
-                                   break;
-                                }
+                        for (int i = 0; i < requestedSeat.length(); i++){
+                            if (isalpha(requestedSeat.at(i))){
+                                requestedSeat.at(i) = tolower(requestedSeat.at(i));
+                            }else{
+                                cout << "Error! Invalid Seat. Returning to Menu" << endl << endl;
+                                stillInCat = false;
+                                break;
                             }
+                        }//End For Loop
 
-                        break;
-                        //-----------------------------------------------------------
-                        default:
+                        if(requestedSeat == "front"){
+                            if((playerCredits.at(playerId) < 5) && (playerCredits.at(playerId) != -1)){
+                                cout << "Error! Too few credits to select seat! Returning to Menu";
+                                stillInCat = false;
+                            }else{
+                                //TODO Find any front seats available
+                            }
+                        }else if(requestedSeat == "side"){
+                            if((playerCredits.at(playerId) < 3) && (playerCredits.at(playerId) != -1)){
+                                cout << "Error! Too few credits to select seat! Returning to Menu";
+                                stillInCat = false;
+                            }else{
+                                //TODO Find any side seats available
+                            }
+                        }else if (requestedSeat == "edge"){
+                            if((playerCredits.at(playerId) < 2) && (playerCredits.at(playerId) != -1)){
+                                cout << "Error! Too few credits to select seat! Returning to Menu";
+                                stillInCat = false;
+                            }else{
+                                //TODO Find any edge seats available
+                            }
+                        }else if (requestedSeat == "middle"){
+                            if((playerCredits.at(playerId) < 1) && (playerCredits.at(playerId) != -1)){
+                                cout << "Error! Too few credits to select seat! Returning to Menu";
+                                stillInCat = false;
+                            }else{
+                                //TODO Find any back middle seats available
+                            }
+                        }else{
+                            cout << "Error! Invalid Seat. Returning to Menu" << endl << endl;
                             stillInCat = false;
+                        }
+
+
+
+
+
+                    break;
+                    //-----------------------------------------------------------
+                    case 's':
+                        cout << "Enter your requested vehicle: (Spaces must be included)" << endl;
+                        cout <<setw(2)<< "[Purple Truck]" << endl;
+                        cout <<setw(2)<< "[Red Compact]" << endl;
+                        cout <<setw(2)<< "[Blue Compact]" << endl;
+                        cout <<setw(2)<< "[Yellow Compact]" << endl;
+                        cout <<setw(2)<< "[Blue Sedan]" << endl;
+                        cout <<setw(2)<< "[Green Sedan]" << endl;
+                        getline(cin, requestedVehicle);
+
+                        for(int i = 0; i < requestedVehicle.length(); i++) {//Checks if the input is a one of the possible vehicles.
+                            if (isalpha(requestedVehicle.at(i))){
+                                requestedVehicle.at(i) = tolower(requestedVehicle.at(i));
+                            }else{
+                               cout << "Error! Invalid Vehicle. Returning to Menu" << endl << endl;
+                               stillInCat = false;
+                               break;
+                            }
+                        }
+
+                        if(requestedVehicle == "purple truck"){
+
+                        }else if (requestedVehicle == "red compact"){
+
+                        }else if (requestedVehicle == "blue compact"){
+
+                        }else if (requestedVehicle == "yellow compact"){
+
+                        }else if (requestedVehicle == "blue sedan"){
+
+                        }else if (requestedVehicle == "green sedan"){
+
+                        }else{
+
+                        }
+
+
+
+
+
+                    break;
+                    //-----------------------------------------------------------
+                    default:
+                        cout << "Error! Invalid Choice. Returning to Menu";
+                        stillInCat = false;
+                }
+                } while(stillInCat);
+
+
+
+
+            break;
+            //-----------------------------------------------------------
+
+            //----------Modifies Reservation
+            //-----------------------------------------------------------
+            case 'm':
+                cout << "Enter your Reservation ID:" << endl;
+                getline(cin, userIDHold);
+                for (int i = 0; i < userIDHold.length(); i++) {
+                    if (!isdigit(userIDHold.at(i))) {
+                        cout << "Error! Reservation ID must be a number! Returning to menu.";
+                        break;
                     }
-                    } while(stillInCat);
+                }
+
+                userIDIn = stoi(userIDHold);
 
 
 
 
-                break;
-                //-----------------------------------------------------------
-
-                //----------Modifies Reservation
-                //-----------------------------------------------------------
-                case 'm':
-
-                break;
-                //-----------------------------------------------------------
-
-                //----------Deletes Reservation
-                //-----------------------------------------------------------
-                case 'd':
-
-                break;
-                //-----------------------------------------------------------
-
-                //----------Display Vehicles
-                //-----------------------------------------------------------
-                case 'v':
-
-                break;
-                //-----------------------------------------------------------
-
-                //----------Print Assignments
-                //-----------------------------------------------------------
-                case 's':
-
-                break;
-                //-----------------------------------------------------------
-
-                //----------Print Reservations
-                //-----------------------------------------------------------
-                case 'r':
-                    cout << "Enter the admin password:" << endl;
-                    cin >> adminIn;
-                    if(adminIn != adminPass){
-                        cout << "Admin password not correct!" << endl;
-                        continue;
-                    }
 
 
-                break;
-                //-----------------------------------------------------------
-
-                case 'e':
-                //----------Exits Menu
-                //-----------------------------------------------------------
-                    stillInMenu = false;
-                break;
-                //-----------------------------------------------------------
-
-                default:
-                    cout << "Error! Invalid option! Try again!" << endl;
-            }
 
 
+            break;
+            //-----------------------------------------------------------
+
+            //----------Deletes Reservation
+            //-----------------------------------------------------------
+            case 'd':
+
+            break;
+            //-----------------------------------------------------------
+
+            //----------Display Vehicles
+            //-----------------------------------------------------------
+            case 'v':
+
+            break;
+            //-----------------------------------------------------------
+
+            //----------Print Assignments
+            //-----------------------------------------------------------
+            case 's':
+
+            break;
+            //-----------------------------------------------------------
+
+            //----------Print Reservations
+            //-----------------------------------------------------------
+            case 'r':
+                cout << "Enter the admin password:" << endl;
+                cin >> adminIn;
+                if(adminIn != adminPass){
+                    cout << "Admin password not correct!" << endl;
+                    continue;
+                }
+
+
+            break;
+            //-----------------------------------------------------------
+
+            case 'e':
+            //----------Exits Menu
+            //-----------------------------------------------------------
+                stillInMenu = false;
+            break;
+            //-----------------------------------------------------------
+
+            default:
+                cout << "Error! Invalid option! Try again!" << endl;
+        }
         }while(stillInMenu);//END do while(stillInMenu)
 
 
