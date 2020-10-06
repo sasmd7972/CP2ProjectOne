@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 #include <string>
 #include <vector>
 
@@ -26,6 +27,7 @@ int main() {
     vector<string> teamMembers(18);
     vector<int> playerCredits(18);
     vector<int> reservationIDs(18);
+    fill(reservationIDs.begin(), reservationIDs.end(), 99);
 //----------Menu & Category Variables
 //-----------------------------------------------------------
     bool stillInMenu = true; //When false, exits out of the main menu
@@ -169,7 +171,7 @@ int main() {
             }//end if
 
             playerHold = playerList.at(playerId);
-            if(playerHold.resID != 99){//Checks if there is already a reservation.
+            if(playerHold.ID != 99){//Checks if there is already a reservation.
                 cout << "There is already a reservation at this name." << endl;
                 cout << "Select modify (M) to edit it, or select delete (D) to delete it." << endl;
                 cout << "Returning to Menu" << endl << endl;
@@ -215,8 +217,8 @@ int main() {
                     case 'c':
                         cout << "Enter your requested seat type:" << endl;
                         cout << setw(2) << "[Front] for a front seat" << endl;
-                        cout << setw(2) << "[Side] for a left or right back seat in a Compact" << endl;
-                        cout << setw(2) << "[Edge] for a left or right back seat in a Sedan" << endl;
+                        cout << setw(2) << "[Side] for a left or right back seat in a car without a middle seat" << endl;
+                        cout << setw(2) << "[Edge] for a left or right back seat in a car with a middle seat" << endl;
                         cout << setw(2) << "[Middle] for a middle back seat in a Sedan" << endl;
                         getline(cin, requestedSeat);
 
@@ -302,12 +304,9 @@ int main() {
                         }else if (requestedVehicle == "green sedan"){
 
                         }else{
-
+                            cout << "Error! Invalid Vehicle. Returning to Menu" << endl << endl;
+                            stillInCat = false;
                         }
-
-
-
-
 
                     break;
                     //-----------------------------------------------------------
@@ -358,12 +357,103 @@ int main() {
             //-----------------------------------------------------------
             case 'v':
 
+
+
             break;
             //-----------------------------------------------------------
 
             //----------Print Assignments
             //-----------------------------------------------------------
             case 's':
+                cout << "Enter your requested vehicle: (Spaces must be included)" << endl;
+                cout <<setw(2)<< "[Purple Truck]" << endl;
+                cout <<setw(2)<< "[Red Compact]" << endl;
+                cout <<setw(2)<< "[Blue Compact]" << endl;
+                cout <<setw(2)<< "[Yellow Compact]" << endl;
+                cout <<setw(2)<< "[Blue Sedan]" << endl;
+                cout <<setw(2)<< "[Green Sedan]" << endl;
+                getline(cin, requestedVehicle);
+
+                for(int i = 0; i < requestedVehicle.length(); i++) {//Checks if the input is a one of the possible vehicles.
+                    if (isalpha(requestedVehicle.at(i))){
+                        requestedVehicle.at(i) = tolower(requestedVehicle.at(i));
+                    }else{
+                        cout << "Error! Invalid Vehicle. Returning to Menu" << endl << endl;
+                        stillInCat = false;
+                        break;
+                    }
+                }
+                //TODO fill with driver location info
+                if(requestedVehicle == "purple truck"){
+                    outFs.open("output-files/purple_truck.txt");
+                    if (!outFs.is_open()) {//Checks if the input file can be opened
+                        cout << "Unable to open file for output";
+                    }else {
+                        //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
+                        for(int i = 0; i < 18; i++){
+                            outFs << teamMembers.at(i) << " " << playerCredits.at(i) << endl;
+                        }
+                        outFs.close();//Closes the output file
+                    }
+                }else if (requestedVehicle == "red compact"){
+                    outFs.open("output-files/red_compact.txt");
+                    if (!outFs.is_open()) {//Checks if the input file can be opened
+                        cout << "Unable to open file for output";
+                    }else {
+                        //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
+                        for(int i = 0; i < 18; i++){
+                            outFs << teamMembers.at(i) << " " << playerCredits.at(i) << endl;
+                        }
+                        outFs.close();//Closes the output file
+                    }
+                }else if (requestedVehicle == "blue compact"){
+                    outFs.open("output-files/blue_compact.txt");
+                    if (!outFs.is_open()) {//Checks if the input file can be opened
+                        cout << "Unable to open file for output";
+                    }else {
+                        //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
+                        for(int i = 0; i < 18; i++){
+                            outFs << teamMembers.at(i) << " " << playerCredits.at(i) << endl;
+                        }
+                        outFs.close();//Closes the output file
+                    }
+                }else if (requestedVehicle == "yellow compact"){
+                    outFs.open("output-files/yellow_compact.txt");
+                    if (!outFs.is_open()) {//Checks if the input file can be opened
+                        cout << "Unable to open file for output";
+                    }else {
+                        //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
+                        for(int i = 0; i < 18; i++){
+                            outFs << teamMembers.at(i) << " " << playerCredits.at(i) << endl;
+                        }
+                        outFs.close();//Closes the output file
+                    }
+                }else if (requestedVehicle == "blue sedan"){
+                    outFs.open("output-files/blue_sedan.txt");
+                    if (!outFs.is_open()) {//Checks if the input file can be opened
+                        cout << "Unable to open file for output";
+                    }else {
+                        //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
+                        for(int i = 0; i < 18; i++){
+                            outFs << teamMembers.at(i) << " " << playerCredits.at(i) << endl;
+                        }
+                        outFs.close();//Closes the output file
+                    }
+                }else if (requestedVehicle == "green sedan"){
+                    outFs.open("output-files/green_sedan.txt");
+                    if (!outFs.is_open()) {//Checks if the input file can be opened
+                        cout << "Unable to open file for output";
+                    }else {
+                        //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
+                        for(int i = 0; i < 18; i++){
+                            outFs << teamMembers.at(i) << " " << playerCredits.at(i) << endl;
+                        }
+                        outFs.close();//Closes the output file
+                    }
+                }else{
+                    cout << "Error! Invalid Vehicle. Returning to Menu" << endl << endl;
+                    stillInCat = false;
+                }
 
             break;
             //-----------------------------------------------------------
@@ -373,12 +463,55 @@ int main() {
             case 'r':
                 cout << "Enter the admin password:" << endl;
                 cin >> adminIn;
+
+                //Does not run if admin Password is correct
                 if(adminIn != adminPass){
                     cout << "Admin password not correct!" << endl;
                     continue;
                 }
+                //-----------------------------------------
+                outFs.open("output-files/all_reservations.txt");
+                if (!outFs.is_open()) {//Checks if the input file can be opened
+                    cout << "Unable to open file for output";
+                }else {
 
+                    for (int h = 0; h < 6; h++) {
+                        switch(h) {
+                            case 0:
+                                outFs << "Purple Pickup:" << endl << endl;
+                                outFs << "DRIVER" << endl;//FILL WITH DRIVER INFO
+                                break;
+                            case 1:
+                                outFs << "Red Compact:" << endl << endl;
+                                outFs << "DRIVER" << endl;//FILL WITH DRIVER INFO
+                                break;
+                            case 2:
+                                outFs << "Blue Compact:" << endl << endl;
+                                outFs << "DRIVER" << endl;//FILL WITH DRIVER INFO
+                                break;
+                            case 3:
+                                outFs << "Yellow Compact:" << endl << endl;
+                                outFs << "DRIVER" << endl;//FILL WITH DRIVER INFO
+                                break;
+                            case 4:
+                                outFs << "Blue Sedan:" << endl << endl;
+                                outFs << "DRIVER" << endl;//FILL WITH DRIVER INFO
+                                break;
+                            case 5:
+                                outFs << "Green Sedan:" << endl << endl;
+                                outFs << "DRIVER" << endl;//FILL WITH DRIVER INFO
+                                break;
+                            default:
+                                outFs << "How did you even get here?" << endl;
+                        }
+                        for (int i = 0; i < 18; i++) {
+                            outFs << teamMembers.at(i) << " " << playerCredits.at(i) << endl;
+                        }
+                        outFs << setfill('-') << setw(15)<<"-"<<endl;
 
+                    }//END for loop
+                        outFs.close();//Closes the output file
+                }//END Reservation FILE
             break;
             //-----------------------------------------------------------
 
@@ -397,7 +530,7 @@ int main() {
 
     //----------SAVES quidditch.dat with the updated information.
     //-----------------------------------------------------------
-    outFs.open("input-files/quidditch_team.dat");
+    outFs.open("input-files/quidditch_team.dat", ofstream::trunc);
     if (!outFs.is_open()) {//Checks if the input file can be opened
         cout << "Unable to open file for output";
     }else {
