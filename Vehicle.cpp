@@ -6,17 +6,31 @@
 
 Vehicle::Vehicle() {
     color = RED;
-    seat = FrontSeat;
+    seat = FrontSeat5;
 }
 
-Vehicle::Vehicle(Color color, Seat seat) {
+Vehicle::Vehicle(Color color, Seat seat, int seatAmount, string mySeats[]){
     this->color = color;
-    this->seat =seat;
+    this->seat = seat;
+    this->seatAmount = seatAmount;
+    this->mySeats = mySeats[seatAmount];
 }
 
-void Vehicle::changeColor(Color color){
+//Set Functions
+void Vehicle::setSeatAmount(int seatAmount) {
+    mySeats = mySeats[seatAmount];
+}
+void Vehicle::setColor(Color color){
     this->color = color;
 }
+
+//Get Functions
+string Vehicle::GetMySeats() {
+    return mySeats;
+}
+
 void Vehicle::printVehicle(){
-    for ( int i = 0; i <; i++ )
+    for ( int i = 0; i < mySeats.size; i++ ){
+
+    }
 }

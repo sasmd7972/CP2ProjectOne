@@ -11,19 +11,28 @@
 
 using namespace std;
 
-enum Seat {DriverSeat , FrontSeat, BackSeatL3, BackSeatR3, BackSeatL2, BackSeatR2, BackSeatM1}dir;
+enum Seat {DriverSeat , FrontSeat5, BackSeatL3, BackSeatR3, BackSeatL2, BackSeatR2, BackSeatM1}dir;
 enum Color {RED,BLUE,GREEN,YELLOW, PURPLE};
 
 class Vehicle {
-    private:
-        Color color;
-        //Seat mySeats[];
-        Seat seat;
+  private:
+    Color color;
+    int seatAmount;
+    string mySeats[];
+    Seat seat;
 
-    public:
-        Vehicle();
-        Vehicle(Color color, Seat seat);
-        void changeColor(Color color);
-        void printVehicle();
+  public:
+    Vehicle();
+    Vehicle(Color color, Seat seat, int seatAmount, string mySeats[]);
+
+    //Set Functions
+    void setSeatAmount(int seatAmount);
+    void setColor(Color color);
+
+    //Get Functions
+    string GetMySeats();
+
+    //Utility Functions
+    void printVehicle();
 };
 #endif //PROJECT_ONE_VEHICLE_H
