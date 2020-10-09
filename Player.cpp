@@ -22,6 +22,10 @@ Player::Player(string name, Seat SeatAssignment){
 int * Player::getIDmemory() {
     return IDmemory;
 }
+Seat Player::getSeatAssignment() {
+    return seatAssignment;
+}
+
 //Set Functions
 void Player::setSeatAssignment(Player player, Seat seatAssignment) {
     player.seatAssignment = seatAssignment;
@@ -84,13 +88,13 @@ void Player::createReservation(Player player, Seat seatAssignment){
 // ID doesn't change since there is no need
 void Player::modifyReservation(Player player, Seat seatAssignment){
     // Gives the player back the seat credit from old seat assignment
-    if ( player.seatAssignment == FrontSeat5){
+    if ( player.getSeatAssignment() == FrontSeat5){
         player.seatCredit = player.seatCredit + 5;
     }
-    else if( player.seatAssignment== BackSeatL3 ||  seatAssignment== BackSeatR3 ){
+    else if( player.getSeatAssignment()== BackSeatL3 ||  seatAssignment== BackSeatR3 ){
         player.seatCredit = player.seatCredit + 3;
     }
-    else if( player.seatAssignment== BackSeatL2 ||  seatAssignment== BackSeatR2 ){
+    else if( player.getSeatAssignment()== BackSeatL2 ||  seatAssignment== BackSeatR2 ){
         player.seatCredit = player.seatCredit + 2;
     }
     else{

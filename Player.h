@@ -32,6 +32,7 @@ class Player {
 
     //Get Functions
     int * getIDmemory();
+    Seat getSeatAssignment();
 
     //Set Functions
     void setSeatAssignment(Player player, Seat seatAssignment);
