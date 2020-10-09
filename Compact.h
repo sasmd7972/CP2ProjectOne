@@ -5,7 +5,7 @@
 #ifndef PROJECT_ONE_COMPACT_H
 #define PROJECT_ONE_COMPACT_H
 
-#include "Vehicle.h"
+#include "Vehicle_AND_Player.h"
 
 class Compact : public Vehicle {
 private:

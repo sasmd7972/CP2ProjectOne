@@ -2,9 +2,9 @@
 // Created by steve on 10/2/2020.
 //
 
-#include "Player.h"
+#include "Vehicle_AND_Player.h"
 
-// This is the default is not variables are placed in the constuctor
+// This is the default is not variables are placed in the constructor
 Player::Player(){
     ID = NULL;
     name = ' ';

@@ -5,7 +5,7 @@
 #ifndef PROJECT_ONE_SEDAN_H
 #define PROJECT_ONE_SEDAN_H
 
-#include "Vehicle.h"
+#include "Vehicle_AND_Player.h"
 
 class Sedan : public Vehicle {
     private:

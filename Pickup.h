@@ -5,7 +5,7 @@
 #ifndef PROJECT_ONE_PICKUP_H
 #define PROJECT_ONE_PICKUP_H
 
-#include "Vehicle.h"
+#include "Vehicle_AND_Player.h"
 
 class Pickup : public Vehicle {
 private:

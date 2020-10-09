@@ -4,8 +4,12 @@
 #include <string>
 #include <vector>
 
-#include "Player.h"
-#include "Vehicle.h"
+#include "Vehicle_AND_Player.h"
+#include "Pickup.h"
+#include "Sedan.h"
+#include "Compact.h"
+
+
 
 using namespace std;
 
@@ -62,7 +66,7 @@ int main() {
 
 //----------Admin Variables
 //-----------------------------------------------------------
-    string adminPass = "AdminPassword";//Only used by admin to view reservations. Temporary
+    const string adminPass = "AdminPassword";//Only used by admin to view reservations. Temporary
     string adminIn = "BLANK";//test
 
 
@@ -100,6 +104,25 @@ int main() {
         teamMembers.at(i) = holdNames;
     }
 
+    //----------Creates the Vehicle Objects
+    //-----------------------------------------------------------
+        Pickup purplePickup;
+        purplePickup = Pickup(PURPLE);
+
+        Compact redCompact;
+        redCompact = Compact(RED);
+        Compact blueCompact;
+        blueCompact = Compact(BLUE);
+        Compact yellowCompact;
+        yellowCompact = Compact(YELLOW);
+
+        Sedan blueSedan;
+        blueSedan = Sedan(BLUE);
+        Sedan greenSedan;
+        greenSedan = Sedan(GREEN);
+
+
+
 
                 cout << "Welcome to the RIT Quidditch Team Reservation System" << endl;//Out of do loop so they don't have to see message multiple times.
 //---------------------------------------------------------
@@ -109,10 +132,20 @@ int main() {
         //----------Resets Variables to default values
         //-----------------------------------------------------------
         //TODO: Reset variables to default values
-
-
-
-
+        holdNames = "BLANK";
+        stillInCat = true;
+        stillInMenu = true;
+        menuChoice = '-';
+        returnToMenu = false;
+        userIDHold = "BLANK";
+        userIDIn = 99;
+        selMethod = '-';
+        userName = "BLANK";
+        validName = false;
+        playerId = -1;
+        requestedVehicle = "BLANK";
+        requestedSeat = "BLANK";
+        adminIn = "BLANK";
 
 
 
@@ -169,7 +202,7 @@ int main() {
             }//end if
 
             playerHold = playerList.at(playerId);
-            if(playerHold.ID != 99){//Checks if there is already a reservation.
+            if(* playerHold.getIDmemory() != 99){//Checks if there is already a reservation.
                 cout << "There is already a reservation at this name." << endl;
                 cout << "Select modify (M) to edit it, or select delete (D) to delete it." << endl;
                 cout << "Returning to Menu" << endl << endl;
@@ -271,7 +304,7 @@ int main() {
                     //-----------------------------------------------------------
                     case 's':
                         cout << "Enter your requested vehicle: (Spaces must be included)" << endl;
-                        cout <<setw(2)<< "[Purple Truck]" << endl;
+                        cout <<setw(2)<< "[Purple Pickup]" << endl;
                         cout <<setw(2)<< "[Red Compact]" << endl;
                         cout <<setw(2)<< "[Blue Compact]" << endl;
                         cout <<setw(2)<< "[Yellow Compact]" << endl;
@@ -289,18 +322,42 @@ int main() {
                             }
                         }
 
-                        if(requestedVehicle == "purple truck"){
-
+                        if(requestedVehicle == "purple pickup"){//There is only one seat possible in this vehicle so no seat selection is needed
+                            if(purplePickup.GetFilled().at(1)){
+                                cout << "That seat is unavailable. Returning to Menu";
+                            }else{
+                                purplePickup.setSeat(* playerHold.getIDmemory(),FrontSeat5);
+                                cout << "Seat assignment successful. Returning to Menu";
+                            }
                         }else if (requestedVehicle == "red compact"){
+                            cout << "Enter your requested seat type:" << endl;
+                            cout <<setw(2)<< "[Front] for a front seat" << endl;
+                            cout <<setw(2)<< "[Side] for a back seat on either the left or right side" << endl;
+
 
                         }else if (requestedVehicle == "blue compact"){
+                            cout << "Enter your requested seat type:" << endl;
+                            cout <<setw(2)<< "[Front] for the front seat" << endl;
+                            cout <<setw(2)<< "[Side] for a back seat on either the left or right side" << endl;
+
 
                         }else if (requestedVehicle == "yellow compact"){
+                            cout << "Enter your requested seat type:" << endl;
+                            cout <<setw(2)<< "[Front] for the front seat" << endl;
+                            cout <<setw(2)<< "[Side] for a back seat on either the left or right side" << endl;
+
 
                         }else if (requestedVehicle == "blue sedan"){
+                            cout << "Enter your requested seat type:" << endl;
+                            cout <<setw(2)<< "[Front] for the front seat" << endl;
+                            cout <<setw(2)<< "[Edge] for a back seat on either the left or right side" << endl;
+                            cout <<setw(2)<< "[Middle] for the back middle seat" << endl;
 
                         }else if (requestedVehicle == "green sedan"){
-
+                            cout << "Enter your requested seat type:" << endl;
+                            cout <<setw(2)<< "[Front] for the front seat" << endl;
+                            cout <<setw(2)<< "[Edge] for a back seat on either the left or right side" << endl;
+                            cout <<setw(2)<< "[Middle] for the back middle seat" << endl;
                         }else{
                             cout << "Error! Invalid Vehicle. Returning to Menu" << endl << endl;
                             stillInCat = false;
@@ -334,7 +391,7 @@ int main() {
 
                 userIDIn = stoi(userIDHold);
 
-
+                //TODO understand how the reservations are stored and use that to check if there is already one
 
 
 
@@ -364,7 +421,7 @@ int main() {
             //-----------------------------------------------------------
             case 's':
                 cout << "Enter your requested vehicle: (Spaces must be included)" << endl;
-                cout <<setw(2)<< "[Purple Truck]" << endl;
+                cout <<setw(2)<< "[Purple Pickup]" << endl;
                 cout <<setw(2)<< "[Red Compact]" << endl;
                 cout <<setw(2)<< "[Blue Compact]" << endl;
                 cout <<setw(2)<< "[Yellow Compact]" << endl;
@@ -382,8 +439,8 @@ int main() {
                     }
                 }
                 //TODO fill with driver location info
-                if(requestedVehicle == "purple truck"){
-                    outFs.open("output-files/purple_truck.txt");
+                if(requestedVehicle == "purple pickup"){
+                    outFs.open("output-files/purple_pickup.txt");
                     if (!outFs.is_open()) {//Checks if the input file can be opened
                         cout << "Unable to open file for output";
                     }else {
