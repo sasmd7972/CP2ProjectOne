@@ -7,7 +7,7 @@
 // This is the default is not variables are placed in the constuctor
 Player::Player(){
     ID = NULL;
-    name = 'Enter Name';
+    name = ' ';
     //Set to be 20 as that is what the project requested
     seatAssignment = DriverSeat;
 }
