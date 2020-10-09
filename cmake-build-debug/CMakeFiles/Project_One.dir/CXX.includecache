@@ -1,0 +1,78 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Compact.cpp
+Compact.h
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Compact.h
+
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Compact.h
+Vehicle.h
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Vehicle.h
+
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Pickup.cpp
+Pickup.h
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Pickup.h
+
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Pickup.h
+Vehicle.h
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Vehicle.h
+
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Player.cpp
+Player.h
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Player.h
+
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Player.h
+iostream
+-
+string
+-
+cstdlib
+-
+ctime
+-
+Vehicle.h
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Vehicle.h
+
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Sedan.cpp
+Sedan.h
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Sedan.h
+
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Sedan.h
+Vehicle.h
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Vehicle.h
+
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Vehicle.cpp
+Vehicle.h
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Vehicle.h
+
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Vehicle.h
+iostream
+-
+string
+-
+vector
+-
+Player.h
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Player.h
+
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/main.cpp
+iostream
+-
+iomanip
+-
+fstream
+-
+string
+-
+vector
+-
+Player.h
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Player.h
+Vehicle.h
+D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Vehicle.h
+
