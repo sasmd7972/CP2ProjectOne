@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Project_One.dir/Player.cpp.obj"
+  "CMakeFiles/Project_One.dir/Sedan.cpp.obj"
   "CMakeFiles/Project_One.dir/Vehicle.cpp.obj"
   "CMakeFiles/Project_One.dir/main.cpp.obj"
   "Project_One.exe"

@@ -23,6 +23,9 @@ int * Player::getIDmemory() {
     return IDmemory;
 }
 //Set Functions
+void Player::setSeatAssignment(Player player, Seat seatAssignment) {
+    player.seatAssignment = seatAssignment;
+}
 
 //Utility Functions
 bool Player::contains(int temp) {

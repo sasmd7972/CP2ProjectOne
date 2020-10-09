@@ -4,33 +4,55 @@
 
 #include "Vehicle.h"
 
-Vehicle::Vehicle() {
+Vehicle::Vehicle(){
     color = RED;
-    seat = FrontSeat5;
-}
-
-Vehicle::Vehicle(Color color, Seat seat, int seatAmount, string mySeats[]){
-    this->color = color;
-    this->seat = seat;
-    this->seatAmount = seatAmount;
-    this->mySeats = mySeats[seatAmount];
+    seatAmount = 1;
+    mySeats.push_back(DriverSeat);
+    filled.push_back(true);
 }
 
 //Set Functions
-void Vehicle::setSeatAmount(int seatAmount) {
-    mySeats = mySeats[seatAmount];
-}
 void Vehicle::setColor(Color color){
     this->color = color;
 }
 
+void Vehicle::setMySeats(Seat seat){
+    filled.push_back(true);
+    mySeats.push_back(seat);
+}
+
+void Vehicle::setMyFill( int seatAmount){
+    for ( int i = 0; i < seatAmount; i++){
+        if ( i == 0){
+            filled.push_back(true);
+        } else {
+            filled.push_back(false);
+        }
+    }
+}
+
+//Place holder for sub classes to modify
+void Vehicle::setSeat(Player player, Seat seat) {
+    filled.push_back(true);
+    player.setSeatAssignment(seat);
+}
+
+
 //Get Functions
-string Vehicle::GetMySeats() {
+vector< Seat > Vehicle::GetMySeats() {
     return mySeats;
 }
 
-void Vehicle::printVehicle(){
-    for ( int i = 0; i < mySeats.size; i++ ){
+// Utility Functions
+void isFull(Seat seat){
+    for (int i = 0; i < seatAmount; i++ ){
 
     }
+}
+
+void Vehicle::printVehicle(){
+    for ( int i = 0; i < vehicleInside.size; i++ ){
+
+    }
+    return mySeats;
 }

@@ -34,6 +34,7 @@ class Player {
     int * getIDmemory();
 
     //Set Functions
+    void setSeatAssignment(Player player, Seat seatAssignment);
 
     //Utility Functions
     bool contains(int temp);

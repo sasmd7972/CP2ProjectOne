@@ -8,31 +8,38 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <vector>
+
+#include "Player.h"
 
 using namespace std;
 
-enum Seat {DriverSeat , FrontSeat5, BackSeatL3, BackSeatR3, BackSeatL2, BackSeatR2, BackSeatM1}dir;
+enum Seat {DriverSeat , FrontSeat5, BackSeatL3, BackSeatR3, BackSeatL2, BackSeatR2, BackSeatM1};
 enum Color {RED,BLUE,GREEN,YELLOW, PURPLE};
 
 class Vehicle {
   private:
     Color color;
     int seatAmount;
-    string mySeats[];
     Seat seat;
+    vector< Seat > mySeats;
+    vector< bool > filled;
 
   public:
+    // Makes a vehicle with color red and one seat for driver seat
     Vehicle();
-    Vehicle(Color color, Seat seat, int seatAmount, string mySeats[]);
 
     //Set Functions
-    void setSeatAmount(int seatAmount);
     void setColor(Color color);
+    void setMySeats(Seat seat);
+    void setMyFill(int seatAmount);
+    void setSeat(Player player,Seat seat);
 
     //Get Functions
-    string GetMySeats();
+    vector< Seat > GetMySeats();
 
     //Utility Functions
+    void isFull(Seat seat);
     void printVehicle();
 };
 #endif //PROJECT_ONE_VEHICLE_H
