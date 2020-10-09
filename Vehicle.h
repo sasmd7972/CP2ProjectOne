@@ -40,6 +40,6 @@ class Vehicle {
 
     //Utility Functions
     bool isFull(Seat seat);
-    void printVehicle();
+    vector< bool > printVehicle();
 };
 #endif //PROJECT_ONE_VEHICLE_H

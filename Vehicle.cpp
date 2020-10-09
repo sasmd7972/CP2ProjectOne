@@ -62,6 +62,6 @@ bool Vehicle::isFull(Seat seat){
     return false;
 }
 
-void Vehicle::printVehicle(){
-
+vector< bool > Vehicle::printVehicle(){
+    return filled;
 }
