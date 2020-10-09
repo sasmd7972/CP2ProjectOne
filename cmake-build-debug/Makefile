@@ -142,6 +142,60 @@ Project_One/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project_One.dir\build.make CMakeFiles/Project_One.dir/build
 .PHONY : Project_One/fast
 
+Compact.obj: Compact.cpp.obj
+
+.PHONY : Compact.obj
+
+# target to build an object file
+Compact.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project_One.dir\build.make CMakeFiles/Project_One.dir/Compact.cpp.obj
+.PHONY : Compact.cpp.obj
+
+Compact.i: Compact.cpp.i
+
+.PHONY : Compact.i
+
+# target to preprocess a source file
+Compact.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project_One.dir\build.make CMakeFiles/Project_One.dir/Compact.cpp.i
+.PHONY : Compact.cpp.i
+
+Compact.s: Compact.cpp.s
+
+.PHONY : Compact.s
+
+# target to generate assembly for a file
+Compact.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project_One.dir\build.make CMakeFiles/Project_One.dir/Compact.cpp.s
+.PHONY : Compact.cpp.s
+
+Pickup.obj: Pickup.cpp.obj
+
+.PHONY : Pickup.obj
+
+# target to build an object file
+Pickup.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project_One.dir\build.make CMakeFiles/Project_One.dir/Pickup.cpp.obj
+.PHONY : Pickup.cpp.obj
+
+Pickup.i: Pickup.cpp.i
+
+.PHONY : Pickup.i
+
+# target to preprocess a source file
+Pickup.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project_One.dir\build.make CMakeFiles/Project_One.dir/Pickup.cpp.i
+.PHONY : Pickup.cpp.i
+
+Pickup.s: Pickup.cpp.s
+
+.PHONY : Pickup.s
+
+# target to generate assembly for a file
+Pickup.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project_One.dir\build.make CMakeFiles/Project_One.dir/Pickup.cpp.s
+.PHONY : Pickup.cpp.s
+
 Player.obj: Player.cpp.obj
 
 .PHONY : Player.obj
@@ -259,6 +313,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Project_One
+	@echo ... Compact.obj
+	@echo ... Compact.i
+	@echo ... Compact.s
+	@echo ... Pickup.obj
+	@echo ... Pickup.i
+	@echo ... Pickup.s
 	@echo ... Player.obj
 	@echo ... Player.i
 	@echo ... Player.s

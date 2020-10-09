@@ -128,12 +128,40 @@ CMakeFiles/Project_One.dir/Sedan.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_One.dir/Sedan.cpp.s"
 	D:\Programs\MinGW\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Flash Drive\College\2020\ComputationalProblemSolvingTwo\Assignments\CP2ProjectOne\Sedan.cpp" -o CMakeFiles\Project_One.dir\Sedan.cpp.s
 
+CMakeFiles/Project_One.dir/Pickup.cpp.obj: CMakeFiles/Project_One.dir/flags.make
+CMakeFiles/Project_One.dir/Pickup.cpp.obj: ../Pickup.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Flash Drive\College\2020\ComputationalProblemSolvingTwo\Assignments\CP2ProjectOne\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Project_One.dir/Pickup.cpp.obj"
+	D:\Programs\MinGW\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Project_One.dir\Pickup.cpp.obj -c "D:\Flash Drive\College\2020\ComputationalProblemSolvingTwo\Assignments\CP2ProjectOne\Pickup.cpp"
+
+CMakeFiles/Project_One.dir/Pickup.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_One.dir/Pickup.cpp.i"
+	D:\Programs\MinGW\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Flash Drive\College\2020\ComputationalProblemSolvingTwo\Assignments\CP2ProjectOne\Pickup.cpp" > CMakeFiles\Project_One.dir\Pickup.cpp.i
+
+CMakeFiles/Project_One.dir/Pickup.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_One.dir/Pickup.cpp.s"
+	D:\Programs\MinGW\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Flash Drive\College\2020\ComputationalProblemSolvingTwo\Assignments\CP2ProjectOne\Pickup.cpp" -o CMakeFiles\Project_One.dir\Pickup.cpp.s
+
+CMakeFiles/Project_One.dir/Compact.cpp.obj: CMakeFiles/Project_One.dir/flags.make
+CMakeFiles/Project_One.dir/Compact.cpp.obj: ../Compact.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Flash Drive\College\2020\ComputationalProblemSolvingTwo\Assignments\CP2ProjectOne\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Project_One.dir/Compact.cpp.obj"
+	D:\Programs\MinGW\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Project_One.dir\Compact.cpp.obj -c "D:\Flash Drive\College\2020\ComputationalProblemSolvingTwo\Assignments\CP2ProjectOne\Compact.cpp"
+
+CMakeFiles/Project_One.dir/Compact.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_One.dir/Compact.cpp.i"
+	D:\Programs\MinGW\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Flash Drive\College\2020\ComputationalProblemSolvingTwo\Assignments\CP2ProjectOne\Compact.cpp" > CMakeFiles\Project_One.dir\Compact.cpp.i
+
+CMakeFiles/Project_One.dir/Compact.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_One.dir/Compact.cpp.s"
+	D:\Programs\MinGW\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Flash Drive\College\2020\ComputationalProblemSolvingTwo\Assignments\CP2ProjectOne\Compact.cpp" -o CMakeFiles\Project_One.dir\Compact.cpp.s
+
 # Object files for target Project_One
 Project_One_OBJECTS = \
 "CMakeFiles/Project_One.dir/main.cpp.obj" \
 "CMakeFiles/Project_One.dir/Vehicle.cpp.obj" \
 "CMakeFiles/Project_One.dir/Player.cpp.obj" \
-"CMakeFiles/Project_One.dir/Sedan.cpp.obj"
+"CMakeFiles/Project_One.dir/Sedan.cpp.obj" \
+"CMakeFiles/Project_One.dir/Pickup.cpp.obj" \
+"CMakeFiles/Project_One.dir/Compact.cpp.obj"
 
 # External object files for target Project_One
 Project_One_EXTERNAL_OBJECTS =
@@ -142,11 +170,13 @@ Project_One.exe: CMakeFiles/Project_One.dir/main.cpp.obj
 Project_One.exe: CMakeFiles/Project_One.dir/Vehicle.cpp.obj
 Project_One.exe: CMakeFiles/Project_One.dir/Player.cpp.obj
 Project_One.exe: CMakeFiles/Project_One.dir/Sedan.cpp.obj
+Project_One.exe: CMakeFiles/Project_One.dir/Pickup.cpp.obj
+Project_One.exe: CMakeFiles/Project_One.dir/Compact.cpp.obj
 Project_One.exe: CMakeFiles/Project_One.dir/build.make
 Project_One.exe: CMakeFiles/Project_One.dir/linklibs.rsp
 Project_One.exe: CMakeFiles/Project_One.dir/objects1.rsp
 Project_One.exe: CMakeFiles/Project_One.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\Flash Drive\College\2020\ComputationalProblemSolvingTwo\Assignments\CP2ProjectOne\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Project_One.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\Flash Drive\College\2020\ComputationalProblemSolvingTwo\Assignments\CP2ProjectOne\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Project_One.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Project_One.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

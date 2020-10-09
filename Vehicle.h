@@ -7,7 +7,6 @@
 
 #include <iostream>
 #include <string>
-#include <list>
 #include <vector>
 
 #include "Player.h"
@@ -31,15 +30,16 @@ class Vehicle {
 
     //Set Functions
     void setColor(Color color);
-    void setMySeats(Seat seat);
+    void setupMySeats(Seat seat);
     void setMyFill(int seatAmount);
     void setSeat(Player player,Seat seat);
 
     //Get Functions
     vector< Seat > GetMySeats();
+    vector< bool > GetFilled();
 
     //Utility Functions
-    void isFull(Seat seat);
+    bool isFull(Seat seat);
     void printVehicle();
 };
 #endif //PROJECT_ONE_VEHICLE_H

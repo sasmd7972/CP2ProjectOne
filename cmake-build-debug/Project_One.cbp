@@ -80,6 +80,18 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Compact.cpp">
+			<Option target="Project_One"/>
+		</Unit>
+		<Unit filename="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Compact.h">
+			<Option target="Project_One"/>
+		</Unit>
+		<Unit filename="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Pickup.cpp">
+			<Option target="Project_One"/>
+		</Unit>
+		<Unit filename="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Pickup.h">
+			<Option target="Project_One"/>
+		</Unit>
 		<Unit filename="D:/Flash Drive/College/2020/ComputationalProblemSolvingTwo/Assignments/CP2ProjectOne/Player.cpp">
 			<Option target="Project_One"/>
 		</Unit>

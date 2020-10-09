@@ -10,14 +10,10 @@
 class Sedan : public Vehicle {
     private:
         //Sedans only have five seats
-        int seatAmount = 5;
+        int seatAmount = 4;
 
     public:
         Sedan();
-        Sedan(Color color, Seat seat);
-
-
+        Sedan(Color color);
 };
-
-
 #endif //PROJECT_ONE_SEDAN_H

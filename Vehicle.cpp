@@ -16,8 +16,8 @@ void Vehicle::setColor(Color color){
     this->color = color;
 }
 
-void Vehicle::setMySeats(Seat seat){
-    filled.push_back(true);
+// This is very specific that you enter seat in order
+void Vehicle::setupMySeats(Seat seat){
     mySeats.push_back(seat);
 }
 
@@ -31,10 +31,13 @@ void Vehicle::setMyFill( int seatAmount){
     }
 }
 
-//Place holder for sub classes to modify
 void Vehicle::setSeat(Player player, Seat seat) {
-    filled.push_back(true);
-    player.setSeatAssignment(seat);
+    for (int i = 0; i < mySeats.size(); i++ ){
+        if ( mySeats[i] == seat){
+            player.setSeatAssignment(seat);
+            filled[i] = true;
+        }
+    }
 }
 
 
@@ -43,16 +46,22 @@ vector< Seat > Vehicle::GetMySeats() {
     return mySeats;
 }
 
-// Utility Functions
-void isFull(Seat seat){
-    for (int i = 0; i < seatAmount; i++ ){
+vector< bool > Vehicle::GetFilled() {
+    return filled;
+}
 
+// Utility Functions
+
+//Tell you is the seat is empty or not
+bool Vehicle::isFull(Seat seat){
+    for (int i = 0; i < mySeats.size(); i++ ){
+        if ( mySeats[i] == seat && filled[i] == true){
+            return true;
+        }
     }
+    return false;
 }
 
 void Vehicle::printVehicle(){
-    for ( int i = 0; i < vehicleInside.size; i++ ){
 
-    }
-    return mySeats;
 }

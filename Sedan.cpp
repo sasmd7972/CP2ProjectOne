@@ -5,20 +5,19 @@
 #include "Sedan.h"
 
 Sedan::Sedan(){
-    setMySeats(DriverSeat);
-    setMySeats(FrontSeat5);
-    setMySeats(BackSeatL2);
-    setMySeats(BackSeatM1);
-    setMySeats(BackSeatR2);
-
+    setColor(RED);
+    setupMySeats(DriverSeat);
+    setupMySeats(FrontSeat5);
+    setupMySeats(BackSeatL3);
+    setupMySeats(BackSeatR3);
+    setMyFill(seatAmount);
 }
 
 Sedan::Sedan(Color color) {
     setColor(color);
-    setMySeats(DriverSeat);
-    setMySeats(FrontSeat5);
-    setMySeats(BackSeatL2);
-    setMySeats(BackSeatM1);
-    setMySeats(BackSeatR2);
-
+    setupMySeats(DriverSeat);
+    setupMySeats(FrontSeat5);
+    setupMySeats(BackSeatL3);
+    setupMySeats(BackSeatR3);
+    setMyFill(seatAmount);
 }
