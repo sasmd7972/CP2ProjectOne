@@ -20,11 +20,13 @@ class Vehicle {
   private:
     Color color;
     int seatAmount;
-    Seat seat;
     vector< Seat > mySeats;
     vector< bool > filled;
 
   public:
+    // Has to be public due to the Player accessing this
+    Seat seat;
+
     // Makes a vehicle with color red and one seat for driver seat
     Vehicle();
 
