@@ -20,9 +20,7 @@ class Player {
     static const int memorySize = 100;
     int IDmemory[memorySize];
     string name;
-
-    // Set to be 20
-    int seatCredit = 20;
+    int seatCredit;
     Seat seatAssignment;
 
   public:
