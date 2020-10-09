@@ -3,28 +3,25 @@
 
 CMakeFiles/Project_One.dir/Compact.cpp.obj: ../Compact.cpp
 CMakeFiles/Project_One.dir/Compact.cpp.obj: ../Compact.h
-CMakeFiles/Project_One.dir/Compact.cpp.obj: ../Player.h
-CMakeFiles/Project_One.dir/Compact.cpp.obj: ../Vehicle.h
+CMakeFiles/Project_One.dir/Compact.cpp.obj: ../Vehicle_AND_Player.h
 
 CMakeFiles/Project_One.dir/Pickup.cpp.obj: ../Pickup.cpp
 CMakeFiles/Project_One.dir/Pickup.cpp.obj: ../Pickup.h
-CMakeFiles/Project_One.dir/Pickup.cpp.obj: ../Player.h
-CMakeFiles/Project_One.dir/Pickup.cpp.obj: ../Vehicle.h
+CMakeFiles/Project_One.dir/Pickup.cpp.obj: ../Vehicle_AND_Player.h
 
 CMakeFiles/Project_One.dir/Player.cpp.obj: ../Player.cpp
-CMakeFiles/Project_One.dir/Player.cpp.obj: ../Player.h
-CMakeFiles/Project_One.dir/Player.cpp.obj: ../Vehicle.h
+CMakeFiles/Project_One.dir/Player.cpp.obj: ../Vehicle_AND_Player.h
 
-CMakeFiles/Project_One.dir/Sedan.cpp.obj: ../Player.h
 CMakeFiles/Project_One.dir/Sedan.cpp.obj: ../Sedan.cpp
 CMakeFiles/Project_One.dir/Sedan.cpp.obj: ../Sedan.h
-CMakeFiles/Project_One.dir/Sedan.cpp.obj: ../Vehicle.h
+CMakeFiles/Project_One.dir/Sedan.cpp.obj: ../Vehicle_AND_Player.h
 
-CMakeFiles/Project_One.dir/Vehicle.cpp.obj: ../Player.h
 CMakeFiles/Project_One.dir/Vehicle.cpp.obj: ../Vehicle.cpp
-CMakeFiles/Project_One.dir/Vehicle.cpp.obj: ../Vehicle.h
+CMakeFiles/Project_One.dir/Vehicle.cpp.obj: ../Vehicle_AND_Player.h
 
-CMakeFiles/Project_One.dir/main.cpp.obj: ../Player.h
-CMakeFiles/Project_One.dir/main.cpp.obj: ../Vehicle.h
+CMakeFiles/Project_One.dir/main.cpp.obj: ../Compact.h
+CMakeFiles/Project_One.dir/main.cpp.obj: ../Pickup.h
+CMakeFiles/Project_One.dir/main.cpp.obj: ../Sedan.h
+CMakeFiles/Project_One.dir/main.cpp.obj: ../Vehicle_AND_Player.h
 CMakeFiles/Project_One.dir/main.cpp.obj: ../main.cpp
 
