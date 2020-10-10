@@ -34,7 +34,7 @@ void Vehicle::setMyFill( int seatAmount){
 void Vehicle::setSeat(Player player, Seat seat) {
     for (int i = 0; i < mySeats.size(); i++ ){
         if ( mySeats[i] == seat){
-            player.setSeatAssignment(seat);
+            player.setSeatAssignment(player, seat);
             filled[i] = true;
         }
     }

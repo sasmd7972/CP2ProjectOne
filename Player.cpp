@@ -6,7 +6,7 @@
 
 // This is the default is not variables are placed in the constructor
 Player::Player(){
-    ID = NULL;
+    ID = 99;
     name = ' ';
     //Set to be 20 as that is what the project requested
     seatAssignment = DriverSeat;
@@ -136,7 +136,7 @@ void Player::deleteReservation(Player player, Seat seatAssignment){
 
     //Go to default settings
     player.seatAssignment = DriverSeat;
-    player.ID = NULL;
+    player.ID = 99;
 
     //Deletes the ID from IDmemory
     for(int & i : IDmemory) {

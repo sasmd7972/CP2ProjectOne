@@ -60,10 +60,10 @@ private:
     int seatAmount;
     vector< Seat > mySeats;
     vector< bool > filled;
+    Seat seat;
 
 public:
     // Has to be public due to the Player accessing this
-    Seat seat;
 
     // Makes a vehicle with color red and one seat for driver seat
     Vehicle();
@@ -72,7 +72,7 @@ public:
     void setColor(Color color);
     void setupMySeats(Seat seat);
     void setMyFill(int seatAmount);
-    void setSeat(Player player,Seat seat);
+    void setSeat(Player,Seat);
 
     //Get Functions
     vector< Seat > GetMySeats();

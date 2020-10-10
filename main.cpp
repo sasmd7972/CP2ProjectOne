@@ -78,7 +78,7 @@ int main() {
 
     //----------OPENS THE FILE AND READS THE NAMES OF THE MEMBERS
     //-----------------------------------------------------------
-    inFs.open("input-files/quidditch_team.dat");
+    inFs.open("quidditch_team.dat", std::ifstream::in);
     if (!inFs.is_open())//Checks if the input file can be opened
         cout << "Unable to open file for input";
     else {
@@ -185,6 +185,7 @@ int main() {
             //-----------------------------------------------------------
             case 'c':
             cout << "Enter your name to begin: [first last]" << endl;
+            cin.ignore();
             getline(cin, userName);
 
             for (int i = 0; i < 18; i++) {//checks if their name is in the quidditch.dat file and is not a driver
@@ -251,6 +252,7 @@ int main() {
                         cout << setw(2) << "[Side] for a left or right back seat in a car without a middle seat" << endl;
                         cout << setw(2) << "[Edge] for a left or right back seat in a car with a middle seat" << endl;
                         cout << setw(2) << "[Middle] for a middle back seat in a Sedan" << endl;
+                        cin.ignore();
                         getline(cin, requestedSeat);
 
                         for (int i = 0; i < requestedSeat.length(); i++){
@@ -310,6 +312,7 @@ int main() {
                         cout <<setw(2)<< "[Yellow Compact]" << endl;
                         cout <<setw(2)<< "[Blue Sedan]" << endl;
                         cout <<setw(2)<< "[Green Sedan]" << endl;
+                        cin.ignore();
                         getline(cin, requestedVehicle);
 
                         for(int i = 0; i < requestedVehicle.length(); i++) {//Checks if the input is a one of the possible vehicles.
@@ -326,7 +329,7 @@ int main() {
                             if(purplePickup.GetFilled().at(1)){
                                 cout << "That seat is unavailable. Returning to Menu";
                             }else{
-                                purplePickup.setSeat(* playerHold.getIDmemory(),FrontSeat5);
+                                purplePickup.setSeat(playerHold, FrontSeat5);
                                 cout << "Seat assignment successful. Returning to Menu";
                             }
                         }else if (requestedVehicle == "red compact"){
@@ -381,6 +384,7 @@ int main() {
             //-----------------------------------------------------------
             case 'm':
                 cout << "Enter your Reservation ID:" << endl;
+                cin.ignore();
                 getline(cin, userIDHold);
                 for (int i = 0; i < userIDHold.length(); i++) {
                     if (!isdigit(userIDHold.at(i))) {
@@ -427,6 +431,7 @@ int main() {
                 cout <<setw(2)<< "[Yellow Compact]" << endl;
                 cout <<setw(2)<< "[Blue Sedan]" << endl;
                 cout <<setw(2)<< "[Green Sedan]" << endl;
+                cin.ignore();
                 getline(cin, requestedVehicle);
 
                 for(int i = 0; i < requestedVehicle.length(); i++) {//Checks if the input is a one of the possible vehicles.
@@ -585,7 +590,7 @@ int main() {
 
     //----------SAVES quidditch.dat with the updated information.
     //-----------------------------------------------------------
-    outFs.open("input-files/quidditch_team.dat", ofstream::trunc);
+    outFs.open("quidditch_team.dat", ofstream::trunc);
     if (!outFs.is_open()) {//Checks if the input file can be opened
         cout << "Unable to open file for output";
     }else {
