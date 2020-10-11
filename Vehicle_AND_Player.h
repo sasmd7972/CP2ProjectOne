@@ -5,20 +5,16 @@
 #ifndef MAIN_CPP_VEHICLE_AND_PLAYER_H
 #define MAIN_CPP_VEHICLE_AND_PLAYER_H
 
-
-
 #include <iostream>
 #include <string>
 #include <vector>
 #include <cstdlib>
 #include <ctime>
 
-
 using namespace std;
 
 enum Seat {DriverSeat , FrontSeat5, BackSeatL3, BackSeatR3, BackSeatL2, BackSeatR2, BackSeatM1};
 enum Color {RED,BLUE,GREEN,YELLOW, PURPLE};
-
 
 class Player {
 private:
@@ -82,5 +78,4 @@ public:
     bool isFull(Seat seat);
     vector< bool > printVehicle();
 };
-
 #endif //MAIN_CPP_VEHICLE_AND_PLAYER_H

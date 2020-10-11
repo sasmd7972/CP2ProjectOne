@@ -299,9 +299,6 @@ int main() {
                         }
 
 
-
-
-
                     break;
                     //-----------------------------------------------------------
                     case 's':
@@ -413,6 +410,10 @@ int main() {
             //-----------------------------------------------------------
 
             //----------Display Vehicles
+
+            // The way it was in the project
+            // Display all of the vehicle in the project
+
             //-----------------------------------------------------------
             case 'v':
 
@@ -420,8 +421,11 @@ int main() {
 
             break;
             //-----------------------------------------------------------
-
             //----------Print Assignments
+
+            // Print one vehicle to a separate file
+            // Will show player in vehicle
+
             //-----------------------------------------------------------
             case 's':
                 cout << "Enter your requested vehicle: (Spaces must be included)" << endl;
@@ -519,6 +523,9 @@ int main() {
             //-----------------------------------------------------------
 
             //----------Print Reservations
+
+            // Print all vehicles with players in each seat
+
             //-----------------------------------------------------------
             case 'r':
                 cout << "Enter the admin password:" << endl;
@@ -530,6 +537,7 @@ int main() {
                     continue;
                 }
                 //-----------------------------------------
+                // Print file out to this
                 outFs.open("output-files/all_reservations.txt");
                 if (!outFs.is_open()) {//Checks if the input file can be opened
                     cout << "Unable to open file for output";
