@@ -27,6 +27,7 @@ int main() {
 //-----------------------------------------------------------
     vector<string> drivers(6);
     vector<string> teamMembers(18);
+    vector<Player> playerList(18);
     vector<int> playerCredits(18);
     vector<int> reservationIDs(18);
     fill(reservationIDs.begin(), reservationIDs.end(), 99);
@@ -48,11 +49,13 @@ int main() {
 //-----------------------------------------------------------
     string userName = "BLANK";
     bool validName = false;
-    int playerId = -1;
+    bool validID = false;
+    int playerId = 99;
+    size_t found;
+    string holdCredits;
 
-    vector<Player> playerList(18);
+
     Player playerHold;//Stores a single player from the vector Needed to use Players() functions
-
     char selMethod;//How they user wants to select their seat
 
     string requestedVehicle = "BLANK";
@@ -71,9 +74,9 @@ int main() {
 
 
 
-    //-----------------------------------------------------------
-    //PROGRAM BEGINS HERE
-    //-----------------------------------------------------------
+//-----------------------------------------------------------
+//PROGRAM BEGINS HERE
+//-----------------------------------------------------------
 
 
     //----------OPENS THE FILE AND READS THE NAMES OF THE MEMBERS
@@ -82,7 +85,7 @@ int main() {
     if (!inFs.is_open())//Checks if the input file can be opened
         cout << "Unable to open file for input";
     else {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 6; i++) {
             getline(inFs, drivers.at(i));
         }
         for (int i = 0; i < 18; i++) {
@@ -94,13 +97,22 @@ int main() {
     //-----------------------------------------------------------
     for (int i = 0; i < 18; i++) {
         holdNames = teamMembers.at(i);
+        //Finds the location  last character in string that isn't a digit
+        found = holdNames.find_last_not_of("0123456789");
+        //sets the string hold credits to the substring of numbers in the name
+        holdCredits = holdNames.substr(found + 1);
+        //Converts the hold credits string to an integer
+        playerCredits.at(i) = stoi(holdCredits);
+        //removes all characters from the whitespace before the number until the end of the string
+        if (found != std::string::npos) {
+            holdNames.erase(found);
+        }
+        //Converts all the letters in the names to lowercase
 
-
-        playerCredits.at(i) = holdNames.back();
-
-
-        holdNames.pop_back();
-        holdNames.pop_back();
+        for (int k = 0; k < holdNames.length() - 1; k++) {
+            holdNames.at(k) = tolower(holdNames.at(k));
+        }
+        //Sets the team member name at i to the new value of hold names
         teamMembers.at(i) = holdNames;
     }
 
@@ -124,14 +136,16 @@ int main() {
 
 
 
-                cout << "Welcome to the RIT Quidditch Team Reservation System" << endl;//Out of do loop so they don't have to see message multiple times.
+
+
+    cout << "Welcome to the RIT Quidditch Team Reservation System" << endl;//Out of do loop so they don't have to see message multiple times.
 //---------------------------------------------------------
 //MENU OPTIONS AND DISPLAY BEGINS HERE
 //---------------------------------------------------------
     do {
         //----------Resets Variables to default values
         //-----------------------------------------------------------
-        //TODO: Reset variables to default values
+        //TODO: Finish reset variables to default values
         holdNames = "BLANK";
         stillInCat = true;
         stillInMenu = true;
@@ -148,9 +162,6 @@ int main() {
         adminIn = "BLANK";
 
 
-
-
-
         //----------Displays the menu
         //-----------------------------------------------------------
         cout << setfill('-') << setw(60)<<"-"<<endl;
@@ -163,6 +174,8 @@ int main() {
         cout << "Enter E to exit the program" << endl;
         cout << setfill('-') << setw(60)<<"-"<<endl;
         cin >> userMenuIn;
+
+
         //----------Checks if their menu choice is an option
         //-----------------------------------------------------------
         if(userMenuIn.length() != 1){
@@ -181,6 +194,8 @@ int main() {
         menuChoice = tolower(menuChoice);
 
         switch (menuChoice) {//Determines which of the menu options was chosen, if any
+
+
             //----------Creates Reservation
             //-----------------------------------------------------------
             case 'c':
@@ -188,26 +203,31 @@ int main() {
             cin.ignore();
             getline(cin, userName);
 
+            for(int i = 0; i < userName.length() -1 ; i++){
+                userName.at(i) = tolower(userName.at(i));
+            }
+
+
             for (int i = 0; i < 18; i++) {//checks if their name is in the quidditch.dat file and is not a driver
-                if (userName == teamMembers.at(i+6)) {
+                if (userName == teamMembers.at(i)) {
                     validName = true;
                     playerId = i;//Player ID is their location in the .dat file // same as ResID
                     break;
                 }//end if
             }//end loop
 
-            if(!validName){//Makes the user reenter name if not in file
-                cout << userName << " is either a driver or is not a part of the Quidditch Team" << endl;
-                cout << "Enter your name to begin: [first last]" << endl;
+            if(!validName){
+                cout << userName << " is not one of the members of the quidditch team that needs a ride." << endl;
+                cout << "Returning to menu" << endl;
                 continue;
             }//end if
 
             playerHold = playerList.at(playerId);
-            if(* playerHold.getIDmemory() != 99){//Checks if there is already a reservation.
+
+            if(*playerHold.getIDmemory() != 0){//Checks if there is already a reservation.
                 cout << "There is already a reservation at this name." << endl;
                 cout << "Select modify (M) to edit it, or select delete (D) to delete it." << endl;
                 cout << "Returning to Menu" << endl << endl;
-
                 cout << setfill('-') << setw(60)<<"-"<<endl;
                 continue;
             }
@@ -215,6 +235,8 @@ int main() {
             cout << "Welcome " << userName << endl;
             cout << "You have " << playerCredits.at(playerId) << " Credits remaining" << endl;
             cout << setfill('-') << setw(60)<<"-"<<endl;
+
+
 
             //----------Seat Selection
             //-----------------------------------------------------------
@@ -270,28 +292,162 @@ int main() {
                                 cout << "Error! Too few credits to select seat! Returning to Menu";
                                 stillInCat = false;
                             }else{
-                                //TODO Find any front seats available
+
+                                
+                                //Checks each seat to see if it is full. If not, it assigns the seat. If so, it goes to the next one
+                                if(!(purplePickup.isFull(FrontSeat5))){
+                                    playerHold.createReservation(playerHold, FrontSeat5);
+                                    purplePickup.setSeat(playerHold, FrontSeat5);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!(redCompact.isFull(FrontSeat5))){
+                                    playerHold.createReservation(playerHold, FrontSeat5);
+                                    redCompact.setSeat(playerHold, FrontSeat5);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!(blueCompact.isFull(FrontSeat5))){
+                                    playerHold.createReservation(playerHold, FrontSeat5);
+                                    blueCompact.setSeat(playerHold, FrontSeat5);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!(yellowCompact.isFull(FrontSeat5))){
+                                    playerHold.createReservation(playerHold, FrontSeat5);
+                                    yellowCompact.setSeat(playerHold, FrontSeat5);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!(blueSedan.isFull(FrontSeat5))){
+                                    playerHold.createReservation(playerHold, FrontSeat5);
+                                    blueSedan.setSeat(playerHold, FrontSeat5);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!(greenSedan.isFull(FrontSeat5))){
+                                    playerHold.createReservation(playerHold, FrontSeat5);
+                                    greenSedan.setSeat(playerHold, FrontSeat5);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else{
+                                    cout << "No front seats available. Select another type of seat." << endl;
+                                }
+
+
+
                             }
                         }else if(requestedSeat == "side"){
                             if((playerCredits.at(playerId) < 3) && (playerCredits.at(playerId) != -1)){
                                 cout << "Error! Too few credits to select seat! Returning to Menu";
                                 stillInCat = false;
                             }else{
-                                //TODO Find any side seats available
+
+                                //Finds which seats are filled. If they are not, fills them
+                                if((!(redCompact.isFull(BackSeatL3)))){
+                                    playerHold.createReservation(playerHold, BackSeatL3);
+                                    redCompact.setSeat(playerHold, BackSeatL3);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!(blueCompact.isFull(BackSeatL3))){
+                                    playerHold.createReservation(playerHold, BackSeatL3);
+                                    blueCompact.setSeat(playerHold, BackSeatL3);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!(yellowCompact.isFull(BackSeatL3))){
+                                    playerHold.createReservation(playerHold, BackSeatL3);
+                                    yellowCompact.setSeat(playerHold, BackSeatL3);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }if((!(redCompact.isFull(BackSeatR3)))){
+                                    playerHold.createReservation(playerHold, BackSeatR3);
+                                    redCompact.setSeat(playerHold, BackSeatR3);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!(blueCompact.isFull(BackSeatR3))){
+                                    playerHold.createReservation(playerHold, BackSeatR3);
+                                    blueCompact.setSeat(playerHold, BackSeatR3);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!(yellowCompact.isFull(BackSeatR3))) {
+                                    playerHold.createReservation(playerHold, BackSeatR3);
+                                    yellowCompact.setSeat(playerHold, BackSeatR3);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else{
+                                    cout << "No side seats available. Select another type of seat." << endl;
+                                }
+
+
                             }
                         }else if (requestedSeat == "edge"){
                             if((playerCredits.at(playerId) < 2) && (playerCredits.at(playerId) != -1)){
                                 cout << "Error! Too few credits to select seat! Returning to Menu";
                                 stillInCat = false;
                             }else{
-                                //TODO Find any edge seats available
+
+
+                                if((!(blueSedan.isFull(BackSeatL2)))){
+                                    playerHold.createReservation(playerHold, BackSeatL2);
+                                    blueSedan.setSeat(playerHold, BackSeatL2);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!(greenSedan.isFull(BackSeatL2))){
+                                    playerHold.createReservation(playerHold, BackSeatL2);
+                                    greenSedan.setSeat(playerHold, BackSeatL2);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!(blueSedan.isFull(BackSeatR2))){
+                                    playerHold.createReservation(playerHold, BackSeatR2);
+                                    blueSedan.setSeat(playerHold, BackSeatR2);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }if((!(greenSedan.isFull(BackSeatR2)))){
+                                    playerHold.createReservation(playerHold, BackSeatR2);
+                                    greenSedan.setSeat(playerHold, BackSeatR2);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else{
+                                    cout << "No edge seats available. Select another type of seat." << endl;
+                                }
+
+
                             }
                         }else if (requestedSeat == "middle"){
                             if((playerCredits.at(playerId) < 1) && (playerCredits.at(playerId) != -1)){
                                 cout << "Error! Too few credits to select seat! Returning to Menu";
                                 stillInCat = false;
                             }else{
-                                //TODO Find any back middle seats available
+
+
+                                if((!(blueSedan.isFull(BackSeatM1)))){
+                                    playerHold.createReservation(playerHold, BackSeatM1);
+                                    blueSedan.setSeat(playerHold, BackSeatM1);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!(greenSedan.isFull(BackSeatL3))){
+                                    playerHold.createReservation(playerHold, BackSeatM1);
+                                    greenSedan.setSeat(playerHold, BackSeatM1);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else{
+                                    cout << "No back seats available. Select another type of seat." << endl;
+                                }
+
+
                             }
                         }else{
                             cout << "Error! Invalid Seat. Returning to Menu" << endl << endl;
@@ -325,42 +481,296 @@ int main() {
                             }
                         }
 
+
+
                         if(requestedVehicle == "purple pickup"){//There is only one seat possible in this vehicle so no seat selection is needed
                             if(purplePickup.GetFilled().at(1)){
                                 cout << "That seat is unavailable. Returning to Menu";
+                                stillInCat = false;
                             }else{
+                                playerHold.createReservation(playerHold, FrontSeat5);
                                 purplePickup.setSeat(playerHold, FrontSeat5);
-                                cout << "Seat assignment successful. Returning to Menu";
+                                cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                cout << "Remember it." << endl << endl;
                             }
                         }else if (requestedVehicle == "red compact"){
                             cout << "Enter your requested seat type:" << endl;
                             cout <<setw(2)<< "[Front] for a front seat" << endl;
                             cout <<setw(2)<< "[Side] for a back seat on either the left or right side" << endl;
+                            cin >> requestedSeat;
+
+                            for(int i = 0; i < requestedSeat.length(); i++) {//Checks if the input is a one of the possible Seats.
+                                if (isalpha(requestedSeat.at(i))){
+                                    requestedSeat.at(i) = tolower(requestedSeat.at(i));
+                                }else{
+                                    cout << "Error! Invalid Seat. Returning to Menu" << endl << endl;
+                                    stillInCat = false;
+                                    break;
+                                }
+                            }
+
+                            if(requestedSeat == "front"){
+                                if(redCompact.isFull(FrontSeat5)){
+                                    cout << "That seat is unavailable. Returning to Menu" << endl;
+                                    stillInCat = false;
+                                }else{
+                                    playerHold.createReservation(playerHold, FrontSeat5);
+                                    redCompact.setSeat(playerHold, FrontSeat5);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }
+                            }else if(requestedSeat == "side"){
+                                if(!redCompact.isFull(BackSeatL3)){
+                                    playerHold.createReservation(playerHold, BackSeatL3);
+                                    redCompact.setSeat(playerHold, BackSeatL3);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!redCompact.isFull((BackSeatR3))){
+                                    playerHold.createReservation(playerHold, BackSeatR3);
+                                    redCompact.setSeat(playerHold, BackSeatR3);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else{
+                                    cout << "All side seats in this vehicle are unavailable. Returning to Menu" << endl;
+                                    stillInCat = false;
+                                }
+                            }else{
+                                cout << "Error! Invalid Seat. Returning to Menu" << endl << endl;
+                                stillInCat = false;
+                                break;
+                            }
+
+
+
+
+
 
 
                         }else if (requestedVehicle == "blue compact"){
                             cout << "Enter your requested seat type:" << endl;
                             cout <<setw(2)<< "[Front] for the front seat" << endl;
                             cout <<setw(2)<< "[Side] for a back seat on either the left or right side" << endl;
+                            cin >> requestedSeat;
 
+                            for(int i = 0; i < requestedSeat.length(); i++) {//Checks if the input is a one of the possible Seats.
+                                if (isalpha(requestedSeat.at(i))){
+                                    requestedSeat.at(i) = tolower(requestedSeat.at(i));
+                                }else{
+                                    cout << "Error! Invalid Seat. Returning to Menu" << endl << endl;
+                                    stillInCat = false;
+                                    break;
+                                }
+                            }
+
+                            if(requestedSeat == "front"){
+                                if(blueCompact.isFull(FrontSeat5)){
+                                    cout << "That seat is unavailable. Returning to Menu" << endl;
+                                    stillInCat = false;
+                                }else{
+                                    playerHold.createReservation(playerHold, FrontSeat5);
+                                    blueCompact.setSeat(playerHold, FrontSeat5);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }
+                            }else if(requestedSeat == "side"){
+                                if(!blueCompact.isFull(BackSeatL3)){
+                                    playerHold.createReservation(playerHold, BackSeatL3);
+                                    blueCompact.setSeat(playerHold, BackSeatL3);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!blueCompact.isFull((BackSeatR3))){
+                                    playerHold.createReservation(playerHold, BackSeatR3);
+                                    blueCompact.setSeat(playerHold, BackSeatR3);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else{
+                                    cout << "All side seats in this vehicle are unavailable. Returning to Menu" << endl;
+                                    stillInCat = false;
+                                }
+                            }else{
+                                cout << "Error! Invalid Seat. Returning to Menu" << endl << endl;
+                                stillInCat = false;
+                                break;
+                            }
 
                         }else if (requestedVehicle == "yellow compact"){
                             cout << "Enter your requested seat type:" << endl;
                             cout <<setw(2)<< "[Front] for the front seat" << endl;
                             cout <<setw(2)<< "[Side] for a back seat on either the left or right side" << endl;
+                            cin >> requestedSeat;
 
+                            for(int i = 0; i < requestedSeat.length(); i++) {//Checks if the input is a one of the possible Seats.
+                                if (isalpha(requestedSeat.at(i))){
+                                    requestedSeat.at(i) = tolower(requestedSeat.at(i));
+                                }else{
+                                    cout << "Error! Invalid Seat. Returning to Menu" << endl << endl;
+                                    stillInCat = false;
+                                    break;
+                                }
+                            }
+
+                            if(requestedSeat == "front"){
+                                if(yellowCompact.isFull(FrontSeat5)){
+                                    cout << "That seat is unavailable. Returning to Menu" << endl;
+                                    stillInCat = false;
+                                }else{
+                                    playerHold.createReservation(playerHold, FrontSeat5);
+                                    yellowCompact.setSeat(playerHold, FrontSeat5);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }
+                            }else if(requestedSeat == "side"){
+                                if(!yellowCompact.isFull(BackSeatL3)){
+                                    playerHold.createReservation(playerHold, BackSeatL3);
+                                    yellowCompact.setSeat(playerHold, BackSeatL3);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!yellowCompact.isFull((BackSeatR3))){
+                                    playerHold.createReservation(playerHold, BackSeatR3);
+                                    yellowCompact.setSeat(playerHold, BackSeatR3);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else{
+                                    cout << "All side seats in this vehicle are unavailable. Returning to Menu" << endl;
+                                    stillInCat = false;
+                                }
+                            }else{
+                                cout << "Error! Invalid Seat. Returning to Menu" << endl << endl;
+                                stillInCat = false;
+                                break;
+                            }
 
                         }else if (requestedVehicle == "blue sedan"){
                             cout << "Enter your requested seat type:" << endl;
                             cout <<setw(2)<< "[Front] for the front seat" << endl;
                             cout <<setw(2)<< "[Edge] for a back seat on either the left or right side" << endl;
                             cout <<setw(2)<< "[Middle] for the back middle seat" << endl;
+                            cin >> requestedSeat;
 
+                            for(int i = 0; i < requestedSeat.length(); i++) {//Checks if the input is a one of the possible Seats.
+                                if (isalpha(requestedSeat.at(i))){
+                                    requestedSeat.at(i) = tolower(requestedSeat.at(i));
+                                }else{
+                                    cout << "Error! Invalid Seat. Returning to Menu" << endl << endl;
+                                    stillInCat = false;
+                                    break;
+                                }
+                            }
+
+                            if(requestedSeat == "front"){
+                                if(blueSedan.isFull(FrontSeat5)){
+                                    cout << "That seat is unavailable. Returning to Menu" << endl;
+                                    stillInCat = false;
+                                }else{
+                                    playerHold.createReservation(playerHold, FrontSeat5);
+                                    blueSedan.setSeat(playerHold, FrontSeat5);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }
+                            }else if(requestedSeat == "edge"){
+                                if(!blueSedan.isFull(BackSeatL2)){
+                                    playerHold.createReservation(playerHold, BackSeatL2);
+                                    blueSedan.setSeat(playerHold, BackSeatL2);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!blueSedan.isFull((BackSeatR2))){
+                                    playerHold.createReservation(playerHold, BackSeatR2);
+                                    blueSedan.setSeat(playerHold, BackSeatR2);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else{
+                                    cout << "All side seats in this vehicle are unavailable. Returning to Menu" << endl;
+                                    stillInCat = false;
+                                }
+                            }else if(requestedSeat == "middle"){
+                                if(!blueSedan.isFull(BackSeatM1)){
+                                    playerHold.createReservation(playerHold, BackSeatM1);
+                                    blueSedan.setSeat(playerHold, BackSeatM1);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else{
+                                    cout << "All side seats in this vehicle are unavailable. Returning to Menu" << endl;
+                                    stillInCat = false;
+                                }
+                            }else{
+                                cout << "Error! Invalid Seat. Returning to Menu" << endl << endl;
+                                stillInCat = false;
+                                break;
+                            }
                         }else if (requestedVehicle == "green sedan"){
                             cout << "Enter your requested seat type:" << endl;
                             cout <<setw(2)<< "[Front] for the front seat" << endl;
                             cout <<setw(2)<< "[Edge] for a back seat on either the left or right side" << endl;
                             cout <<setw(2)<< "[Middle] for the back middle seat" << endl;
+                            cin >> requestedSeat;
+
+                            for(int i = 0; i < requestedSeat.length(); i++) {//Checks if the input is a one of the possible Seats.
+                                if (isalpha(requestedSeat.at(i))){
+                                    requestedSeat.at(i) = tolower(requestedSeat.at(i));
+                                }else{
+                                    cout << "Error! Invalid Seat. Returning to Menu" << endl << endl;
+                                    stillInCat = false;
+                                    break;
+                                }
+                            }
+
+                            if(requestedSeat == "front"){
+                                if(greenSedan.isFull(FrontSeat5)){
+                                    cout << "That seat is unavailable. Returning to Menu" << endl;
+                                    stillInCat = false;
+                                }else{
+                                    playerHold.createReservation(playerHold, FrontSeat5);
+                                    greenSedan.setSeat(playerHold, FrontSeat5);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }
+                            }else if(requestedSeat == "edge"){
+                                if(!greenSedan.isFull(BackSeatL2)){
+                                    playerHold.createReservation(playerHold, BackSeatL2);
+                                    greenSedan.setSeat(playerHold, BackSeatL2);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else if(!greenSedan.isFull((BackSeatR2))){
+                                    playerHold.createReservation(playerHold, BackSeatR2);
+                                    greenSedan.setSeat(playerHold, BackSeatR2);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else{
+                                    cout << "All side seats in this vehicle are unavailable. Returning to Menu" << endl;
+                                    stillInCat = false;
+                                }
+                            }else if(requestedSeat == "middle"){
+                                if(!greenSedan.isFull(BackSeatM1)){
+                                    playerHold.createReservation(playerHold, BackSeatM1);
+                                    greenSedan.setSeat(playerHold, BackSeatM1);
+                                    cout << "Successful reservation. Your Reservation ID is " << playerHold.getIDmemory() << endl;
+                                    cout << "Remember it." << endl << endl;
+                                    stillInCat = false;
+                                }else{
+                                    cout << "All side seats in this vehicle are unavailable. Returning to Menu" << endl;
+                                    stillInCat = false;
+                                }
+                            }else{
+                                cout << "Error! Invalid Seat. Returning to Menu" << endl << endl;
+                                stillInCat = false;
+                                break;
+                            }
                         }else{
                             cout << "Error! Invalid Vehicle. Returning to Menu" << endl << endl;
                             stillInCat = false;
@@ -394,8 +804,17 @@ int main() {
                 }
 
                 userIDIn = stoi(userIDHold);
+                //Checks if the reservation ID is in use
+                for(int i = 0; i < 18; i++){
+                    if(userIDIn = reservationIDs.at(i)){
+                        validID = true;
+                    }
+                }
+                if(!validID){
+                    cout << "Error! Reservation ID not in use! Returning to menu.";
+                    break;
+                }
 
-                //TODO understand how the reservations are stored and use that to check if there is already one
 
 
 
@@ -408,7 +827,29 @@ int main() {
             //----------Deletes Reservation
             //-----------------------------------------------------------
             case 'd':
-
+                //Takes in the reservation ID
+                cout << "Enter your Reservation ID:" << endl;
+                cin.ignore();
+                getline(cin, userIDHold);
+                for (int i = 0; i < userIDHold.length(); i++) {
+                    if (!isdigit(userIDHold.at(i))) {
+                        cout << "Error! Reservation ID must be a number! Returning to menu.";
+                        break;
+                    }
+                }
+                userIDIn = stoi(userIDHold);
+                //Checks if the reservation ID is in use
+                for(int i = 0; i < 18; i++){
+                    if(userIDIn = reservationIDs.at(i)){
+                        validID = true;
+                    }
+                }
+                if(!validID){
+                    cout << "Error! Reservation ID not in use! Returning to menu.";
+                    break;
+                }
+                playerHold.deleteReservation(playerHold, playerHold.getSeatAssignment());
+                cout << "Reservation Deleted Successfully!";
             break;
             //-----------------------------------------------------------
 
@@ -590,11 +1031,12 @@ int main() {
 
     //----------SAVES quidditch.dat with the updated information.
     //-----------------------------------------------------------
+    //--Commented out because it does not accuratly save the information
     outFs.open("quidditch_team.dat", ofstream::trunc);
     if (!outFs.is_open()) {//Checks if the input file can be opened
         cout << "Unable to open file for output";
     }else {
-        for(int i = 0; i < 5; i++){
+        for(int i = 0; i < 6; i++){
             outFs << drivers.at(i) << endl;
         }
         for(int i = 0; i < 18; i++){
