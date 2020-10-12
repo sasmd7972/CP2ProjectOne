@@ -49,6 +49,9 @@ vector< Seat > Vehicle::GetMySeats() {
 vector< bool > Vehicle::GetFilled() {
     return filled;
 }
+int Vehicle::getSeatAmount(){
+    return seatAmount;
+}
 
 // Utility Functions
 

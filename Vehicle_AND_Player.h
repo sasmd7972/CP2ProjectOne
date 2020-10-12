@@ -17,7 +17,7 @@ enum Seat {DriverSeat , FrontSeat5, BackSeatL3, BackSeatR3, BackSeatL2, BackSeat
 enum Color {RED,BLUE,GREEN,YELLOW,PURPLE};
 
 class Player {
-private:
+protected:
     int ID;
     //This is an array of the ID numbers of the reservations
     static const int memorySize = 100;
@@ -52,7 +52,7 @@ public:
 };
 
 class Vehicle {
-private:
+protected:
     Color color;
     int seatAmount;
     vector< Seat > mySeats;
@@ -74,6 +74,7 @@ public:
     //Get Functions
     vector< Seat > GetMySeats();
     vector< bool > GetFilled();
+    int getSeatAmount();
 
     //Utility Functions
     bool isFull(Seat seat);
