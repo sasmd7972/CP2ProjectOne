@@ -102,4 +102,5 @@ void Vehicle::printVehicle(){
             }
         }
     }
+    cout << endl;
 }
