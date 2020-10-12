@@ -9,7 +9,7 @@
 
 class Compact : public Vehicle {
 private:
-    //Sedans only have five seats
+    //Sedans only has five seats
     int seatAmount = 5;
 
 public:

@@ -9,7 +9,7 @@
 
 class Sedan : public Vehicle {
     private:
-        //Sedans only have four seats
+        //Sedans only has four seats
         int seatAmount = 4;
 
     public:

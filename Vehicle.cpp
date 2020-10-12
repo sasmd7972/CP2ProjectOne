@@ -62,8 +62,27 @@ bool Vehicle::isFull(Seat seat){
     return false;
 }
 
-vector< bool > Vehicle::printVehicle(){
-
-
-    return filled;
+void Vehicle::printVehicle(){
+    cout << color << endl;
+    for (int i  = 0; i  < filled.size(); ++i ) {
+        if (mySeats[i] == DriverSeat) {
+            cout << "(-)";
+        } else {
+            if (filled[i] == true) {
+                if (mySeats[i] == FrontSeat5) {
+                    cout << "(5)" << endl;
+                } else if (mySeats[i] == BackSeatL3 || mySeats[i] == BackSeatR3) {
+                    cout << "(3)";
+                } else if (mySeats[i] == BackSeatL2 || mySeats[i] == BackSeatR2) {
+                    cout << "(2)";
+                } else if (mySeats[i] == BackSeatM1) {
+                    cout << "(1)";
+                } else {
+                    cout << "Seat Type not found";
+                }
+            } else {
+                cout << "(x)";
+            }
+        }
+    }
 }

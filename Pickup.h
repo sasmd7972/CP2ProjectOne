@@ -9,7 +9,7 @@
 
 class Pickup : public Vehicle {
 private:
-    //Pick Up only have five seats
+    //Pick Up only has two seats
     int seatAmount = 2;
 
 public:

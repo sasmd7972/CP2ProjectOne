@@ -118,8 +118,12 @@ int main() {
 
     //----------Creates the Vehicle Objects
     //-----------------------------------------------------------
+
+        vector<Vehicle> VehicleList;
+
         Pickup purplePickup;
         purplePickup = Pickup(PURPLE);
+
 
         Compact redCompact;
         redCompact = Compact(RED);
@@ -128,13 +132,18 @@ int main() {
         Compact yellowCompact;
         yellowCompact = Compact(YELLOW);
 
+
         Sedan blueSedan;
         blueSedan = Sedan(BLUE);
         Sedan greenSedan;
         greenSedan = Sedan(GREEN);
 
-
-
+        VehicleList.push_back(purplePickup);
+        VehicleList.push_back(redCompact);
+        VehicleList.push_back(blueCompact);
+        VehicleList.push_back(yellowCompact);
+        VehicleList.push_back(blueSedan);
+        VehicleList.push_back(greenSedan);
 
 
 
@@ -812,12 +821,6 @@ int main() {
                     break;
                 }
 
-
-
-
-
-
-
             break;
             //-----------------------------------------------------------
 
@@ -849,24 +852,37 @@ int main() {
                 cout << "Reservation Deleted Successfully!";
             break;
             //-----------------------------------------------------------
-
-            //----------Display Vehicles
-
+            // Display Vehicles
             // The way it was in the project
             // Display all of the vehicle in the project
-
             //-----------------------------------------------------------
+
             case 'v':
 
-
-
+            for ( int i = 0; i < VehicleList.size();i++) {
+                if (VehicleList[i].GetMySeats().size() == 2) {
+                    cout << "Truck" << endl;
+                    cout << "-----" << endl;
+                    VehicleList[i].printVehicle();
+                    cout << endl;
+                } else if (VehicleList[i].GetMySeats().size() == 5) {
+                    cout << "Compact" << endl;
+                    cout << "-------" << endl;
+                    VehicleList[i].printVehicle();
+                    cout << endl;
+                } else if (VehicleList[i].GetMySeats().size() == 4) {
+                    cout << "Sedan" << endl;
+                    cout << "-------" << endl;
+                    VehicleList[i].printVehicle();
+                    cout << endl;
+                }
+            }
             break;
-            //-----------------------------------------------------------
-            //----------Print Assignments
 
+            //-----------------------------------------------------------
+            // Print Assignments
             // Print one vehicle to a separate file
             // Will show player in vehicle
-
             //-----------------------------------------------------------
             case 's':
                 cout << "Enter your requested vehicle: (Spaces must be included)" << endl;
@@ -879,7 +895,8 @@ int main() {
                 cin.ignore();
                 getline(cin, requestedVehicle);
 
-                for(int i = 0; i < requestedVehicle.length(); i++) {//Checks if the input is a one of the possible vehicles.
+                for(int i = 0; i < requestedVehicle.length(); i++) {
+                    //Checks if the input is a one of the possible vehicles.
                     if (isalpha(requestedVehicle.at(i))){
                         requestedVehicle.at(i) = tolower(requestedVehicle.at(i));
                     }else{

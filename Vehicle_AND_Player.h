@@ -76,6 +76,6 @@ public:
 
     //Utility Functions
     bool isFull(Seat seat);
-    vector< bool > printVehicle();
+    void printVehicle();
 };
 #endif //MAIN_CPP_VEHICLE_AND_PLAYER_H
