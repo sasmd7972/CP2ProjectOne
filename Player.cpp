@@ -44,7 +44,7 @@ bool Player::contains(int temp) {
         }
         else
             notIn = false;
-        }
+    }
     return notIn;
 }
 
