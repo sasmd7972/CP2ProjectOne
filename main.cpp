@@ -302,6 +302,7 @@ int main() {
                                         //Checks each seat to see if it is full. If not, it assigns the seat. If so, it goes to the next one
                                         if (!(purplePickup.isFull(FrontSeat5))) {
                                             playerHold.createReservation(playerHold, FrontSeat5, 1);
+                                            playerHold.setID(playerHold, 1);
                                             purplePickup.setSeat(playerHold, FrontSeat5);
                                             cout << "Successful reservation. Your Reservation ID is "
                                                  << playerHold.getID()
@@ -310,6 +311,7 @@ int main() {
                                             stillInCat = false;
                                         } else if (!(redCompact.isFull(FrontSeat5))) {
                                             playerHold.createReservation(playerHold, FrontSeat5, 2);
+                                            playerHold.setID(playerHold, 2);
                                             redCompact.setSeat(playerHold, FrontSeat5);
                                             cout << "Successful reservation. Your Reservation ID is "
                                                  << playerHold.getID()
@@ -869,7 +871,7 @@ int main() {
                                 stillInCat = false;
                         }
                     } while (stillInCat);
-
+                    playerList.at(playerId) = playerHold;
 
                     break;
                     //-----------------------------------------------------------

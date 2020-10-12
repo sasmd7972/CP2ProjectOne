@@ -70,7 +70,7 @@ void Player::createReservation(Player player, Seat seatAssignment, int ID){
         player.seatCredit = player.seatCredit - 1;
     }
     //Give player set ID
-    setID(player,ID);
+    player.setID(player,ID);
 }
 
 // Get player gets new seat assignment and recounts the seat credit
@@ -92,7 +92,7 @@ void Player::modifyReservation(Player player, Seat seatAssignment, int ID){
 
     //Assigns the new seat assignment
     player.seatAssignment = seatAssignment;
-    setID(player,ID);
+    player.setID(player,ID);
 
     //Counts for the new seat assignment cost
     if (seatAssignment == FrontSeat5){
