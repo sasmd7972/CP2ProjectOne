@@ -512,7 +512,7 @@ int main() {
 
                                 for (int i = 0; i <
                                                 requestedVehicle.length(); i++) {//Checks if the input is a one of the possible vehicles.
-                                    if (isalpha(requestedVehicle.at(i))) {
+                                    if (isalpha(requestedVehicle.at(i)) || requestedVehicle.at(i) == ' ') {
                                         requestedVehicle.at(i) = tolower(requestedVehicle.at(i));
                                     } else {
                                         cout << "Error! Invalid Vehicle. Returning to Menu" << endl << endl;
@@ -983,7 +983,7 @@ int main() {
 
                 for(int i = 0; i < requestedVehicle.length(); i++) {
                     //Checks if the input is a one of the possible vehicles.
-                    if (isalpha(requestedVehicle.at(i))){
+                    if (isalpha(requestedVehicle.at(i)) || requestedVehicle.at(i) == ' '){
                         requestedVehicle.at(i) = tolower(requestedVehicle.at(i));
                     }else{
                         cout << "Error! Invalid Vehicle. Returning to Menu" << endl << endl;
