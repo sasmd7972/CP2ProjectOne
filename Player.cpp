@@ -8,7 +8,6 @@
 Player::Player(){
     ID = 99;
     name = ' ';
-    //Set to be 20 as that is what the project requested
     seatAssignment = DriverSeat;
 }
 
@@ -45,25 +44,14 @@ bool Player::contains(int temp) {
     return notIn;
 }
 
-void Player::assignID(Player player) {
-    // Get the ID random for reservation
-    // if ID exist make new one until its not
-    int temp;
-    while ( contains(temp) ){
-        srand(time(0));
-        temp = (rand() % 100) + 1;
-        if (!contains(temp)) {
-            player.ID = temp;
-        } else {
-            temp = (rand() % 100) + 1;
-        }
-    }
+void Player::setID(Player player, int ID) {
+    player.ID = ID;
 }
 
 //Reservation Functions
 
 // This creates the reservation
-void Player::createReservation(Player player, Seat seatAssignment){
+void Player::createReservation(Player player, Seat seatAssignment, int ID){
     // These take of care of the values system of the seatAssignments
     if (seatAssignment == FrontSeat5){
         player.seatCredit = player.seatCredit - 5;
@@ -77,16 +65,13 @@ void Player::createReservation(Player player, Seat seatAssignment){
     else{
         player.seatCredit = player.seatCredit - 1;
     }
-    // This get the player with a unique ID
-    assignID(player);
-
-    //This sets the player to a seatAssignment
-    player.seatAssignment = seatAssignment;
+    //Give player set ID
+    setID(player,ID);
 }
 
 // Get player gets new seat assignment and recounts the seat credit
 // ID doesn't change since there is no need
-void Player::modifyReservation(Player player, Seat seatAssignment){
+void Player::modifyReservation(Player player, Seat seatAssignment, int ID){
     // Gives the player back the seat credit from old seat assignment
     if ( player.getSeatAssignment() == FrontSeat5){
         player.seatCredit = player.seatCredit + 5;
@@ -103,6 +88,7 @@ void Player::modifyReservation(Player player, Seat seatAssignment){
 
     //Assigns the new seat assignment
     player.seatAssignment = seatAssignment;
+    setID(player,ID);
 
     //Counts for the new seat assignment cost
     if (seatAssignment == FrontSeat5){

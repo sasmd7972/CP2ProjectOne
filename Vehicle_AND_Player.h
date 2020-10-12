@@ -42,11 +42,11 @@ public:
 
     //Utility Functions
     bool contains(int temp);
-    void assignID(Player player);
+    void setID(Player player, int ID);
 
     //Reservation Functions
-    void createReservation(Player player, Seat seatAssignment);
-    void modifyReservation(Player player, Seat seatAssignment);
+    void createReservation(Player player, Seat seatAssignment, int ID);
+    void modifyReservation(Player player, Seat seatAssignment, int ID);
     void deleteReservation(Player player, Seat seatAssignment);
 };
 
