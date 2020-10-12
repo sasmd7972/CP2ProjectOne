@@ -941,7 +941,6 @@ int main() {
                 //-----------------------------------------------------------
 
             case 'v':
-
                 for ( int i = 0; i < VehicleList.size();i++) {
                     if (VehicleList[i].getSeatAmount() == 2) {
                         cout << "Truck" << endl;
@@ -949,34 +948,14 @@ int main() {
                         VehicleList[i].printVehicle();
                         cout << endl;
                     }
-
-                    else if (VehicleList[i].getSeatAmount() == 1) {
-                        cout << "test 1" << endl;
-                        cout << "-------" << endl;
-                        VehicleList[i].printVehicle();
-                        cout << endl;
-                    }
-                    else if (VehicleList[i].getSeatAmount() == 3) {
-                        cout << "test3" << endl;
-                        cout << "-------" << endl;
-                        VehicleList[i].printVehicle();
-                        cout << endl;
-                    }
-                    else if (VehicleList[i].getSeatAmount() == 0) {
-                        cout << "test0" << endl;
-                        cout << "-------" << endl;
-                        VehicleList[i].printVehicle();
-                        cout << endl;
-                    }
-
-
-                    else if (VehicleList[i].getSeatAmount() == 5) {
-                        cout << "Compact" << endl;
-                        cout << "-------" << endl;
-                        VehicleList[i].printVehicle();
-                        cout << endl;
-                    } else if (VehicleList[i].getSeatAmount() == 4) {
+                    else if (VehicleList[i].getSeatAmount() == 4) {
                         cout << "Sedan" << endl;
+                        cout << "-------" << endl;
+                        VehicleList[i].printVehicle();
+                        cout << endl;
+                    }
+                    if (VehicleList[i].getSeatAmount() == 5) {
+                        cout << "Compact" << endl;
                         cout << "-------" << endl;
                         VehicleList[i].printVehicle();
                         cout << endl;
