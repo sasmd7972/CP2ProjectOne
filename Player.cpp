@@ -6,7 +6,7 @@
 
 // This is the default is not variables are placed in the constructor
 Player::Player(){
-    ID = 99;
+    ID = NULL;
     name = ' ';
     seatAssignment = DriverSeat;
 }
