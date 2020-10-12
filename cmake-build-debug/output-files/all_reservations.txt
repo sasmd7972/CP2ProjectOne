@@ -1,6 +1,6 @@
 Purple Pickup:
 
-DRIVER
+Driver Seat: Pat Cooper
 pam allen 4
 tony james 4
 ron jonesn 9
@@ -22,7 +22,7 @@ peter torres 6
 ---------------
 Red Compact:
 
-DRIVER
+Driver Seat: Jane Cox
 pam allen 4
 tony james 4
 ron jonesn 9
@@ -44,7 +44,7 @@ peter torres 6
 ---------------
 Blue Compact:
 
-DRIVER
+Driver Seat: Tim Taylor
 pam allen 4
 tony james 4
 ron jonesn 9
@@ -66,7 +66,7 @@ peter torres 6
 ---------------
 Yellow Compact:
 
-DRIVER
+Driver Seat: Ben Butler
 pam allen 4
 tony james 4
 ron jonesn 9
@@ -88,7 +88,7 @@ peter torres 6
 ---------------
 Blue Sedan:
 
-DRIVER
+Driver Seat: Art Campbell
 pam allen 4
 tony james 4
 ron jonesn 9
@@ -110,7 +110,7 @@ peter torres 6
 ---------------
 Green Sedan:
 
-DRIVER
+Driver Seat: Ann Edwards
 pam allen 4
 tony james 4
 ron jonesn 9
