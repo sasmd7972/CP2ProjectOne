@@ -1162,26 +1162,92 @@ int main() {
                             case 0:
                                 outFs << "Purple Pickup:" << endl << endl;
                                 outFs << "DRIVER" << endl;//FILL WITH DRIVER INFO
+                                for( int i; i < playerList.size();i++){
+                                    if ( playerList[i].getID() == 1 ){
+                                        outFs << "Front Seat: " << playerList[i].getName();
+                                    }
+                                }
                                 break;
                             case 1:
                                 outFs << "Red Compact:" << endl << endl;
                                 outFs << "DRIVER" << endl;//FILL WITH DRIVER INFO
+                                for( int i; i < playerList.size();i++){
+                                    if ( playerList[i].getID() == 2 ){
+                                        outFs << "Front Seat: " << playerList[i].getName();
+                                    }
+                                    else if ( playerList[i].getID() == 3 ){
+                                        outFs << "Back Seat Left: " << playerList[i].getName();
+                                    }
+                                    else if( playerList[i].getID() == 4 ){
+                                        outFs << "Back Seat Right: " << playerList[i].getName();
+                                    }
+                                }
                                 break;
                             case 2:
                                 outFs << "Blue Compact:" << endl << endl;
                                 outFs << "DRIVER" << endl;//FILL WITH DRIVER INFO
+                                for( int i; i < playerList.size();i++){
+                                    if ( playerList[i].getID() == 5 ){
+                                        outFs << "Front Seat: " << playerList[i].getName();
+                                    }
+                                    else if ( playerList[i].getID() == 6 ){
+                                        outFs << "Back Seat Left: " << playerList[i].getName();
+                                    }
+                                    else if( playerList[i].getID() == 7 ){
+                                        outFs << "Back Seat Right: " << playerList[i].getName();
+                                    }
+                                }
                                 break;
                             case 3:
                                 outFs << "Yellow Compact:" << endl << endl;
                                 outFs << "DRIVER" << endl;//FILL WITH DRIVER INFO
+                                for( int i; i < playerList.size();i++){
+                                    if ( playerList[i].getID() == 8 ){
+                                        outFs << "Front Seat: " << playerList[i].getName();
+                                    }
+                                    else if ( playerList[i].getID() == 9 ){
+                                        outFs << "Back Seat Left: " << playerList[i].getName();
+                                    }
+                                    else if( playerList[i].getID() == 10 ){
+                                        outFs << "Back Seat Right: " << playerList[i].getName();
+                                    }
+                                }
                                 break;
                             case 4:
                                 outFs << "Blue Sedan:" << endl << endl;
                                 outFs << "DRIVER" << endl;//FILL WITH DRIVER INFO
+                                for( int i; i < playerList.size();i++){
+                                    if ( playerList[i].getID() == 11 ){
+                                        outFs << "Front Seat: " << playerList[i].getName();
+                                    }
+                                    else if ( playerList[i].getID() == 12 ){
+                                        outFs << "Back Seat Left: " << playerList[i].getName();
+                                    }
+                                    else if( playerList[i].getID() == 13 ){
+                                        outFs << "Back Seat Middle: " << playerList[i].getName();
+                                    }
+                                    else if( playerList[i].getID() == 14 ){
+                                        outFs << "Back Seat Right: " << playerList[i].getName();
+                                    }
+                                }
                                 break;
                             case 5:
                                 outFs << "Green Sedan:" << endl << endl;
                                 outFs << "DRIVER" << endl;//FILL WITH DRIVER INFO
+                                for( int i; i < playerList.size();i++){
+                                    if ( playerList[i].getID() == 15 ){
+                                        outFs << "Front Seat: " << playerList[i].getName();
+                                    }
+                                    else if ( playerList[i].getID() == 16 ){
+                                        outFs << "Back Seat Left: " << playerList[i].getName();
+                                    }
+                                    else if( playerList[i].getID() == 17 ){
+                                        outFs << "Back Seat Middle: " << playerList[i].getName();
+                                    }
+                                    else if( playerList[i].getID() == 18 ){
+                                        outFs << "Back Seat Right: " << playerList[i].getName();
+                                    }
+                                }
                                 break;
                             default:
                                 outFs << "How did you even get here?" << endl;
