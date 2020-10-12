@@ -145,8 +145,6 @@ int main() {
         VehicleList[4] = blueSedan;
         VehicleList[5] = greenSedan;
 
-
-
     cout << "Welcome to the RIT Quidditch Team Reservation System" << endl;//Out of do loop so they don't have to see message multiple times.
 //---------------------------------------------------------
 //MENU OPTIONS AND DISPLAY BEGINS HERE
@@ -947,26 +945,26 @@ int main() {
             case 'v':
 
                 for ( int i = 0; i < VehicleList.size();i++) {
-                    if (VehicleList[i].GetMySeats().size() == 2) {
+                    if (VehicleList[i].getSeatAmount() == 2) {
                         cout << "Truck" << endl;
                         cout << "-----" << endl;
                         VehicleList[i].printVehicle();
                         cout << endl;
                     }
 
-                    else if (VehicleList[i].GetMySeats().size() == 1) {
+                    else if (VehicleList[i].getSeatAmount() == 1) {
                         cout << "test 1" << endl;
                         cout << "-------" << endl;
                         VehicleList[i].printVehicle();
                         cout << endl;
                     }
-                    else if (VehicleList[i].GetMySeats().size() == 3) {
+                    else if (VehicleList[i].getSeatAmount() == 3) {
                         cout << "test3" << endl;
                         cout << "-------" << endl;
                         VehicleList[i].printVehicle();
                         cout << endl;
                     }
-                    else if (VehicleList[i].GetMySeats().size() == 0) {
+                    else if (VehicleList[i].getSeatAmount() == 0) {
                         cout << "test0" << endl;
                         cout << "-------" << endl;
                         VehicleList[i].printVehicle();
@@ -974,15 +972,12 @@ int main() {
                     }
 
 
-
-
-
-                    else if (VehicleList[i].GetMySeats().size() == 5) {
+                    else if (VehicleList[i].getSeatAmount() == 5) {
                         cout << "Compact" << endl;
                         cout << "-------" << endl;
                         VehicleList[i].printVehicle();
                         cout << endl;
-                    } else if (VehicleList[i].GetMySeats().size() == 4) {
+                    } else if (VehicleList[i].getSeatAmount() == 4) {
                         cout << "Sedan" << endl;
                         cout << "-------" << endl;
                         VehicleList[i].printVehicle();
