@@ -163,7 +163,6 @@ int main() {
         selMethod = '-';
         userName = "BLANK";
         validName = false;
-        playerId = -1;
         requestedVehicle = "BLANK";
         requestedSeat = "BLANK";
         adminIn = "BLANK";
@@ -300,7 +299,6 @@ int main() {
                                         //Checks each seat to see if it is full. If not, it assigns the seat. If so, it goes to the next one
                                         if (!(purplePickup.isFull(FrontSeat5))) {
                                             playerHold.createReservation(playerHold, FrontSeat5, 1);
-                                            playerHold.setID(playerHold, 1);
                                             purplePickup.setSeat(playerHold, FrontSeat5);
                                             cout << "Successful reservation. Your Reservation ID is "
                                                  << playerHold.getID()
@@ -309,7 +307,6 @@ int main() {
                                             stillInCat = false;
                                         } else if (!(redCompact.isFull(FrontSeat5))) {
                                             playerHold.createReservation(playerHold, FrontSeat5, 2);
-                                            playerHold.setID(playerHold, 2);
                                             redCompact.setSeat(playerHold, FrontSeat5);
                                             cout << "Successful reservation. Your Reservation ID is "
                                                  << playerHold.getID()
@@ -510,8 +507,7 @@ int main() {
                                 cin.ignore();
                                 getline(cin, requestedVehicle);
 
-                                for (int i = 0; i <
-                                                requestedVehicle.length(); i++) {//Checks if the input is a one of the possible vehicles.
+                                for (int i = 0; i < requestedVehicle.length(); i++) {//Checks if the input is a one of the possible vehicles.
                                     if (isalpha(requestedVehicle.at(i)) || requestedVehicle.at(i) == ' ') {
                                         requestedVehicle.at(i) = tolower(requestedVehicle.at(i));
                                     } else {
@@ -521,8 +517,7 @@ int main() {
                                     }
                                 }
 
-                                if (requestedVehicle ==
-                                    "purple pickup") {//There is only one seat possible in this vehicle so no seat selection is needed
+                                if (requestedVehicle == "purple pickup") {//There is only one seat possible in this vehicle so no seat selection is needed
                                     if (purplePickup.GetFilled().at(1)) {
                                         cout << "That seat is unavailable. Returning to Menu";
                                         stillInCat = false;
@@ -869,7 +864,7 @@ int main() {
                                 stillInCat = false;
                         }
                     } while (stillInCat);
-                    playerList.at(playerId) = playerHold;
+                    //playerList.at(playerId) = playerHold;
 
                     break;
                     //-----------------------------------------------------------
@@ -925,7 +920,7 @@ int main() {
                 userIDIn = stoi(userIDHold);
                 //Checks if the reservation ID is in use
                 for(int i = 0; i < 18; i++){
-                    if(userIDIn = reservationIDs.at(i)){
+                    if(userIDIn = playerList.at(i).getID()){
                         validID = true;
                     }
                 }
