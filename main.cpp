@@ -1003,6 +1003,11 @@ int main() {
                         for(int i = 0; i < 18; i++){
                             outFs << teamMembers.at(i) << " " << playerCredits.at(i) << endl;
                         }
+                        for( int i; i < playerList.size();i++){
+                            if ( playerList[i].getID() == 1 ){
+                                outFs << "Front Seat: " << playerList[i].getName();
+                            }
+                        }
                         outFs.close();//Closes the output file
                     }
 
@@ -1018,20 +1023,15 @@ int main() {
 
                         for( int i; i < playerList.size();i++){
                             if ( playerList[i].getID() == 2 ){
-
+                                outFs << "Front Seat: " << playerList[i].getName();
                             }
-                            else if ( playerList[i].getID() == 3){
-
+                            else if ( playerList[i].getID() == 3 ){
+                                outFs << "Back Seat Left: " << playerList[i].getName();
                             }
                             else if( playerList[i].getID() == 4 ){
-
+                                outFs << "Back Seat Right: " << playerList[i].getName();
                             }
                         }
-
-
-
-
-
                         outFs.close();//Closes the output file
                     }
                 }else if (requestedVehicle == "blue compact"){
@@ -1042,6 +1042,17 @@ int main() {
                         //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
                         for(int i = 0; i < 18; i++){
                             outFs << teamMembers.at(i) << " " << playerCredits.at(i) << endl;
+                        }
+                        for( int i; i < playerList.size();i++){
+                            if ( playerList[i].getID() == 5 ){
+                                outFs << "Front Seat: " << playerList[i].getName();
+                            }
+                            else if ( playerList[i].getID() == 6 ){
+                                outFs << "Back Seat Left: " << playerList[i].getName();
+                            }
+                            else if( playerList[i].getID() == 7 ){
+                                outFs << "Back Seat Right: " << playerList[i].getName();
+                            }
                         }
                         outFs.close();//Closes the output file
                     }
@@ -1054,6 +1065,17 @@ int main() {
                         for(int i = 0; i < 18; i++){
                             outFs << teamMembers.at(i) << " " << playerCredits.at(i) << endl;
                         }
+                        for( int i; i < playerList.size();i++){
+                            if ( playerList[i].getID() == 8 ){
+                                outFs << "Front Seat: " << playerList[i].getName();
+                            }
+                            else if ( playerList[i].getID() == 9 ){
+                                outFs << "Back Seat Left: " << playerList[i].getName();
+                            }
+                            else if( playerList[i].getID() == 10 ){
+                                outFs << "Back Seat Right: " << playerList[i].getName();
+                            }
+                        }
                         outFs.close();//Closes the output file
                     }
                 }else if (requestedVehicle == "blue sedan"){
@@ -1065,6 +1087,20 @@ int main() {
                         for(int i = 0; i < 18; i++){
                             outFs << teamMembers.at(i) << " " << playerCredits.at(i) << endl;
                         }
+                        for( int i; i < playerList.size();i++){
+                            if ( playerList[i].getID() == 11 ){
+                                outFs << "Front Seat: " << playerList[i].getName();
+                            }
+                            else if ( playerList[i].getID() == 12 ){
+                                outFs << "Back Seat Left: " << playerList[i].getName();
+                            }
+                            else if( playerList[i].getID() == 13 ){
+                                outFs << "Back Seat Middle: " << playerList[i].getName();
+                            }
+                            else if( playerList[i].getID() == 14 ){
+                                outFs << "Back Seat Right: " << playerList[i].getName();
+                            }
+                        }
                         outFs.close();//Closes the output file
                     }
                 }else if (requestedVehicle == "green sedan"){
@@ -1075,6 +1111,20 @@ int main() {
                         //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
                         for(int i = 0; i < 18; i++){
                             outFs << teamMembers.at(i) << " " << playerCredits.at(i) << endl;
+                        }
+                        for( int i; i < playerList.size();i++){
+                            if ( playerList[i].getID() == 15 ){
+                                outFs << "Front Seat: " << playerList[i].getName();
+                            }
+                            else if ( playerList[i].getID() == 16 ){
+                                outFs << "Back Seat Left: " << playerList[i].getName();
+                            }
+                            else if( playerList[i].getID() == 17 ){
+                                outFs << "Back Seat Middle: " << playerList[i].getName();
+                            }
+                            else if( playerList[i].getID() == 18 ){
+                                outFs << "Back Seat Right: " << playerList[i].getName();
+                            }
                         }
                         outFs.close();//Closes the output file
                     }

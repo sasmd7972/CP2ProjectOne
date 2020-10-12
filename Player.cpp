@@ -21,6 +21,10 @@ Player::Player(string name, Seat SeatAssignment){
 int Player::getID() {
     return ID;
 }
+
+string Player::getName(){
+    return name;
+}
 Seat Player::getSeatAssignment() {
     return seatAssignment;
 }

@@ -35,6 +35,7 @@ public:
 
     //Get Functions
     int getID();
+    string getName();
     Seat getSeatAssignment();
 
     //Set Functions
