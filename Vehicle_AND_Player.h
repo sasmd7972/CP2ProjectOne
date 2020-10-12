@@ -34,7 +34,7 @@ public:
     Player(string name, Seat SeatAssignment);
 
     //Get Functions
-    int * getIDmemory();
+    int getID();
     Seat getSeatAssignment();
 
     //Set Functions

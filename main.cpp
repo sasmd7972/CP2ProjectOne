@@ -930,7 +930,15 @@ int main() {
                         }
 
                         for( int i; i < playerList.size();i++){
+                            if ( playerList[i].getID() == 2 ){
 
+                            }
+                            else if ( playerList[i].getID() == 3){
+
+                            }
+                            else if( playerList[i].getID() == 4 ){
+
+                            }
                         }
 
 

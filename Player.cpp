@@ -18,8 +18,8 @@ Player::Player(string name, Seat SeatAssignment){
 }
 
 //Get Functions
-int * Player::getIDmemory() {
-    return IDmemory;
+int Player::getID() {
+    return ID;
 }
 Seat Player::getSeatAssignment() {
     return seatAssignment;
