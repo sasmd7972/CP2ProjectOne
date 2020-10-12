@@ -119,7 +119,7 @@ int main() {
     //----------Creates the Vehicle Objects
     //-----------------------------------------------------------
 
-        vector<Vehicle> VehicleList;
+        vector<Vehicle> VehicleList(6);
 
         Pickup purplePickup;
         purplePickup = Pickup(PURPLE);
@@ -138,12 +138,12 @@ int main() {
         Sedan greenSedan;
         greenSedan = Sedan(GREEN);
 
-        VehicleList.push_back(purplePickup);
-        VehicleList.push_back(redCompact);
-        VehicleList.push_back(blueCompact);
-        VehicleList.push_back(yellowCompact);
-        VehicleList.push_back(blueSedan);
-        VehicleList.push_back(greenSedan);
+        VehicleList[0] = purplePickup;
+        VehicleList[1] = redCompact;
+        VehicleList[2] = blueCompact;
+        VehicleList[3] = yellowCompact;
+        VehicleList[4] = blueSedan;
+        VehicleList[5] = greenSedan;
 
 
 
@@ -950,7 +950,32 @@ int main() {
                         cout << "-----" << endl;
                         VehicleList[i].printVehicle();
                         cout << endl;
-                    } else if (VehicleList[i].GetMySeats().size() == 5) {
+                    }
+
+                    else if (VehicleList[i].GetMySeats().size() == 1) {
+                        cout << "test 1" << endl;
+                        cout << "-------" << endl;
+                        VehicleList[i].printVehicle();
+                        cout << endl;
+                    }
+                    else if (VehicleList[i].GetMySeats().size() == 3) {
+                        cout << "test3" << endl;
+                        cout << "-------" << endl;
+                        VehicleList[i].printVehicle();
+                        cout << endl;
+                    }
+                    else if (VehicleList[i].GetMySeats().size() == 0) {
+                        cout << "test0" << endl;
+                        cout << "-------" << endl;
+                        VehicleList[i].printVehicle();
+                        cout << endl;
+                    }
+
+
+
+
+
+                    else if (VehicleList[i].GetMySeats().size() == 5) {
                         cout << "Compact" << endl;
                         cout << "-------" << endl;
                         VehicleList[i].printVehicle();
