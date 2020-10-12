@@ -63,7 +63,24 @@ bool Vehicle::isFull(Seat seat){
 }
 
 void Vehicle::printVehicle(){
-    cout << color << endl;
+
+    enum Color {RED,BLUE,GREEN,YELLOW,PURPLE};
+
+    if ( color == 0){
+        cout << "RED" << endl;
+    }
+    else if( color == 1){
+        cout << "BLUE" << endl;
+    }
+    else if( color == 2){
+        cout << "GREEN" << endl;
+    }
+    else if( color == 3){
+        cout << "YELLOW" << endl;
+    }
+    else if( color == 4){
+        cout << "PURPLE" << endl;
+    }
     for (int i  = 0; i  < filled.size(); ++i ) {
         if (mySeats[i] == DriverSeat) {
             cout << "(-)";

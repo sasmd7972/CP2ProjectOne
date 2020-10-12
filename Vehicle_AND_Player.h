@@ -14,7 +14,7 @@
 using namespace std;
 
 enum Seat {DriverSeat , FrontSeat5, BackSeatL3, BackSeatR3, BackSeatL2, BackSeatR2, BackSeatM1};
-enum Color {RED,BLUE,GREEN,YELLOW, PURPLE};
+enum Color {RED,BLUE,GREEN,YELLOW,PURPLE};
 
 class Player {
 private:
