@@ -45,9 +45,9 @@ public:
     void setID(Player player, int ID);
 
     //Reservation Functions
-    void createReservation(Player player, Seat seatAssignment, int ID);
-    void modifyReservation(Player player, Seat seatAssignment, int ID);
-    void deleteReservation(Player player, Seat seatAssignment);
+    void createReservation(Seat seatAssignment, int ID);
+    void modifyReservation(Seat seatAssignment, int ID);
+    void deleteReservation(Seat seatAssignment);
 };
 
 class Vehicle {
