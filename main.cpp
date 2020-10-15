@@ -1480,26 +1480,22 @@ int main() {
                     //-----------------------------------------------------------
 
                     case 'v':
-
                         cout << "Truck" << endl;
-                    cout << "-----" << endl;
-                    PickUpList[0].printVehicle();
-                    cout << endl;
+                        cout << "-----" << endl;
+                        PickUpList[0].printVehicle();
 
-                    cout << "Compact" << endl;
-                    cout << "-------" << endl;
-                    CompactList[0].printVehicle();
-                    CompactList[1].printVehicle();
-                    CompactList[2].printVehicle();
-                    cout << endl;
+                        cout << "Compact" << endl;
+                        cout << "-------" << endl;
+                        CompactList[0].printVehicle();
+                        CompactList[1].printVehicle();
+                        CompactList[2].printVehicle();
 
-                    cout << "Sedan" << endl;
-                    cout << "-------" << endl;
-                    SedanList[0].printVehicle();
-                    SedanList[1].printVehicle();
-                    cout << endl;
+                        cout << "Sedan" << endl;
+                        cout << "-------" << endl;
+                        SedanList[0].printVehicle();
+                        SedanList[1].printVehicle();
 
-                    break;
+                        break;
 
                     //-----------------------------------------------------------
                     // Print Assignments
