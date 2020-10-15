@@ -120,6 +120,7 @@ int main() {
     //-----------------------------------------------------------
 
         vector<Vehicle> VehicleList(6);
+        vector<Compact> Compact(
 
         Pickup purplePickup;
         purplePickup = Pickup(PURPLE);

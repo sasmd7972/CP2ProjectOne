@@ -82,7 +82,7 @@ void Vehicle::printVehicle(){
         cout << "PURPLE" << endl;
     }
 
-    for (int i  = 0; i  < mySeats.size(); ++i ) {
+    for (int i  = 0; i  < filled.size(); ++i ) {
         if (mySeats[i] == DriverSeat) {
             cout << "(-)";
         } else {
