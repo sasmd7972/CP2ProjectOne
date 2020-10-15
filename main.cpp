@@ -214,7 +214,6 @@ int main() {
                     userName.at(i) = tolower(userName.at(i));
                 }
 
-
                 for (int i = 0; i < 18; i++) {//checks if their name is in the quidditch.dat file and is not a driver
                     if (userName == teamMembers.at(i)) {
                         validName = true;
@@ -230,7 +229,6 @@ int main() {
                 }//end if
 
                 playerHold = playerList.at(playerId);
-
 
                 if (playerHold.getID() != 99) {//Checks if there is already a reservation.
                     cout << "There is already a reservation at this name." << endl;
@@ -1554,6 +1552,7 @@ int main() {
                         SedanList[0].printVehicle();
                         SedanList[1].printVehicle();
 
+
                         break;
 
                     //-----------------------------------------------------------
@@ -1617,7 +1616,7 @@ int main() {
                                     outFs << "Back Seat Right: " << playerList[i].getName() << endl;
                                 }
                             }
-                            outFs.close();//Closes the output file
+                            outFs.close();//Closes te output file
                         }
                     } else if (requestedVehicle == "blue compact") {
                         outFs.open("output-files/blue_compact.txt");

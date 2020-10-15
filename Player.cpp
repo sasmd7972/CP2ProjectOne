@@ -55,7 +55,7 @@ void Player::setID(Player player, int ID) {
 
 // This creates the reservation
 void Player::createReservation(Seat seatAssignment, int ID){
-     this->ID = ID;
+    this->ID = ID;
     // These take of care of the values system of the seatAssignments
     if (seatAssignment == FrontSeat5){
         this->seatCredit = this->seatCredit - 5;
