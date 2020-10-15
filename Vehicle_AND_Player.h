@@ -48,6 +48,8 @@ public:
     void createReservation(Seat seatAssignment, int ID);
     void modifyReservation(Seat seatAssignment, int ID);
     void deleteReservation(Seat seatAssignment);
+
+    int getCredits();
 };
 
 class Vehicle {

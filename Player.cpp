@@ -19,14 +19,14 @@ Player::Player(string name, Seat SeatAssignment){
 
 //Get Functions
 int Player::getID() {
-    return ID;
+    return this->ID;
 }
 
 string Player::getName(){
-    return name;
+    return this->name;
 }
 Seat Player::getSeatAssignment() {
-    return seatAssignment;
+    return this->seatAssignment;
 }
 
 //Set Functions
@@ -135,4 +135,8 @@ void Player::deleteReservation(Seat seatAssignment){
             i = 0;
         }
     }
+}
+
+int Player::getCredits() {
+        return this-> seatCredit;
 }

@@ -103,6 +103,7 @@ int main() {
         holdCredits = holdNames.substr(found + 1);
         //Converts the hold credits string to an integer
         playerCredits.at(i) = stoi(holdCredits);
+        //cout << playerCredits.at(i) << endl; TESTING
         //removes all characters from the whitespace before the number until the end of the string
         if (found != std::string::npos) {
             holdNames.erase(found);
@@ -230,6 +231,7 @@ int main() {
 
                 playerHold = playerList.at(playerId);
 
+
                 if (playerHold.getID() != 99) {//Checks if there is already a reservation.
                     cout << "There is already a reservation at this name." << endl;
                     cout << "Select modify (M) to edit it, or select delete (D) to delete it." << endl;
@@ -238,7 +240,7 @@ int main() {
                     continue;
                 }
                 cout << setfill('-') << setw(60) << "-" << endl;
-                cout << "Welcome " << userName << endl;
+                cout << "Welcome " << playerHold.getName() << endl;
                 cout << "You have " << playerCredits.at(playerId) << " Credits remaining" << endl;
                 cout << setfill('-') << setw(60) << "-" << endl;
 
@@ -310,6 +312,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else if (!(redCompact.isFull(FrontSeat5))) {
                                         playerHold.createReservation(FrontSeat5, 2);
@@ -318,6 +321,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else if (!(blueCompact.isFull(FrontSeat5))) {
                                         playerHold.createReservation(FrontSeat5, 5);
@@ -326,6 +330,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else if (!(yellowCompact.isFull(FrontSeat5))) {
                                         playerHold.createReservation(FrontSeat5, 8);
@@ -334,6 +339,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else if (!(blueSedan.isFull(FrontSeat5))) {
                                         playerHold.createReservation(FrontSeat5, 11);
@@ -342,6 +348,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else if (!(greenSedan.isFull(FrontSeat5))) {
                                         playerHold.createReservation(FrontSeat5, 15);
@@ -350,6 +357,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else {
                                         cout << "No front seats available. Select another type of seat." << endl;
@@ -371,6 +379,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else if (!(blueCompact.isFull(BackSeatL3))) {
                                         playerHold.createReservation(BackSeatL3, 6);
@@ -379,6 +388,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else if (!(yellowCompact.isFull(BackSeatL3))) {
                                         playerHold.createReservation(BackSeatL3, 9);
@@ -387,6 +397,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else if ((!(redCompact.isFull(BackSeatR3)))) {
                                         playerHold.createReservation(BackSeatR3, 4);
@@ -395,6 +406,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else if (!(blueCompact.isFull(BackSeatR3))) {
                                         playerHold.createReservation(BackSeatR3, 7);
@@ -403,6 +415,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else if (!(yellowCompact.isFull(BackSeatR3))) {
                                         playerHold.createReservation(BackSeatR3, 10);
@@ -411,6 +424,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else {
                                         cout << "No side seats available. Select another type of seat." << endl;
@@ -432,6 +446,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else if (!(greenSedan.isFull(BackSeatL2))) {
                                         playerHold.createReservation(BackSeatL2, 16);
@@ -440,6 +455,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else if (!(blueSedan.isFull(BackSeatR2))) {
                                         playerHold.createReservation(BackSeatR2, 14);
@@ -448,6 +464,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     }
                                     if ((!(greenSedan.isFull(BackSeatR2)))) {
@@ -457,6 +474,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else {
                                         cout << "No edge seats available. Select another type of seat." << endl;
@@ -478,6 +496,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else if (!(greenSedan.isFull(BackSeatL3))) {
                                         playerHold.createReservation(BackSeatM1, 17);
@@ -486,6 +505,7 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                         stillInCat = false;
                                     } else {
                                         cout << "No back seats available. Select another type of seat." << endl;
@@ -538,6 +558,8 @@ int main() {
                                              << playerHold.getID()
                                              << endl;
                                         cout << "Remember it." << endl << endl;
+                                        cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
+                                        stillInCat = false;
                                     }
                                 }
 
@@ -548,8 +570,7 @@ int main() {
                                      << endl;
                                 cin >> requestedSeat;
 
-                                for (int i = 0; i <
-                                                requestedSeat.length(); i++) {//Checks if the input is a one of the possible Seats.
+                                for (int i = 0; i <requestedSeat.length(); i++) {//Checks if the input is a one of the possible Seats.
                                     if (isalpha(requestedSeat.at(i))) {
                                         requestedSeat.at(i) = tolower(requestedSeat.at(i));
                                     } else {
@@ -574,6 +595,7 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         }
                                     }
@@ -589,6 +611,7 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         } else if (!redCompact.isFull((BackSeatR3))) {
                                             playerHold.createReservation(BackSeatR3, 4);
@@ -597,6 +620,7 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         } else {
                                             cout
@@ -645,6 +669,7 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         }
                                     }
@@ -660,6 +685,7 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         } else if (!blueCompact.isFull((BackSeatR3))) {
                                             playerHold.createReservation(BackSeatR3, 7);
@@ -668,6 +694,7 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         } else {
                                             cout
@@ -716,6 +743,7 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         }
                                     }
@@ -732,6 +760,7 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         } else if (!yellowCompact.isFull((BackSeatR3))) {
                                             playerHold.createReservation(BackSeatR3, 10);
@@ -740,6 +769,7 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         } else {
                                             cout
@@ -788,6 +818,7 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         }
                                     }
@@ -803,6 +834,7 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         } else if (!blueSedan.isFull((BackSeatR2))) {
                                             playerHold.createReservation(BackSeatR2, 14);
@@ -811,6 +843,7 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         } else {
                                             cout
@@ -831,6 +864,7 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         } else {
                                             cout
@@ -880,6 +914,7 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         }
                                     }
@@ -895,6 +930,7 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         } else if (!greenSedan.isFull((BackSeatR2))) {
                                             playerHold.createReservation(BackSeatR2, 18);
@@ -903,6 +939,7 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         } else {
                                             cout
@@ -923,10 +960,11 @@ int main() {
                                                  << playerHold.getID()
                                                  << endl;
                                             cout << "Remember it." << endl << endl;
+                                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                             stillInCat = false;
                                         } else {
                                             cout
-                                                    << "All side seats in this vehicle are unavailable. Returning to Menu"
+                                                    << "All middle seats in this vehicle are unavailable. Returning to Menu"
                                                     << endl;
                                             stillInCat = false;
                                         }
@@ -951,6 +989,7 @@ int main() {
 
                 } while (stillInCat);
                 //Updates the playerList vector
+                playerCredits.at(playerId) = playerHold.getCredits();
                 playerList.at(playerId) = playerHold;
                 PickUpList[0] = purplePickup;
                 CompactList[0] = redCompact;
@@ -1027,6 +1066,7 @@ int main() {
                                  << playerHold.getID()
                                  << endl;
                             cout << "Remember it." << endl << endl;
+                            cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                         }
                     }
 
@@ -1063,6 +1103,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             }
                         }
@@ -1078,6 +1119,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             } else if (!redCompact.isFull((BackSeatR3))) {
                                 playerHold.modifyReservation(BackSeatR3, 4);
@@ -1086,6 +1128,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             } else {
                                 cout
@@ -1134,6 +1177,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             }
                         }
@@ -1149,6 +1193,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             } else if (!blueCompact.isFull((BackSeatR3))) {
                                 playerHold.modifyReservation(BackSeatR3, 7);
@@ -1157,6 +1202,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             } else {
                                 cout
@@ -1205,6 +1251,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             }
                         }
@@ -1221,6 +1268,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             } else if (!yellowCompact.isFull((BackSeatR3))) {
                                 playerHold.modifyReservation(BackSeatR3, 10);
@@ -1229,6 +1277,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             } else {
                                 cout
@@ -1277,6 +1326,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             }
                         }
@@ -1292,6 +1342,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             } else if (!blueSedan.isFull((BackSeatR2))) {
                                 playerHold.modifyReservation(BackSeatR2, 14);
@@ -1300,6 +1351,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             } else {
                                 cout
@@ -1320,6 +1372,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             } else {
                                 cout
@@ -1369,6 +1422,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             }
                         }
@@ -1384,6 +1438,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             } else if (!greenSedan.isFull((BackSeatR2))) {
                                 playerHold.modifyReservation(BackSeatR2, 18);
@@ -1392,6 +1447,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             } else {
                                 cout
@@ -1412,6 +1468,7 @@ int main() {
                                      << playerHold.getID()
                                      << endl;
                                 cout << "Remember it." << endl << endl;
+                                cout << "You have " << playerHold.getCredits() << " credits remaining." << endl;
                                 stillInCat = false;
                             } else {
                                 cout
@@ -1430,6 +1487,7 @@ int main() {
                     stillInCat = false;
                     break;
                 }
+                playerCredits.at(playerId) = playerHold.getCredits();
                 playerList.at(playerId) = playerHold;
                 PickUpList[0] = purplePickup;
                 CompactList[0] = redCompact;
@@ -1464,6 +1522,7 @@ int main() {
                         break;
                     }
                     playerHold.deleteReservation(playerHold.getSeatAssignment());
+                    playerCredits.at(playerId) = playerHold.getCredits();
                     playerList.at(playerId) = playerHold;
                     PickUpList[0] = purplePickup;
                     CompactList[0] = redCompact;
@@ -1640,7 +1699,7 @@ int main() {
                         cout << "Error! Invalid Vehicle. Returning to Menu" << endl << endl;
                         stillInCat = false;
                     }
-
+                    cout << "File Created Successfully" << endl;
                     break;
                     //-----------------------------------------------------------
 
