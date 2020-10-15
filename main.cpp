@@ -54,7 +54,6 @@ int main() {
     size_t found;
     string holdCredits;
 
-
     Player playerHold;//Stores a single player from the vector Needed to use Players() functions
     char selMethod;//How they user wants to select their seat
 
@@ -65,14 +64,10 @@ int main() {
 //-----------------------------------------------------------
 
 
-
-
 //----------Admin Variables
 //-----------------------------------------------------------
     const string adminPass = "AdminPassword";//Only used by admin to view reservations. Temporary
     string adminIn = "BLANK";//test
-
-
 
 //-----------------------------------------------------------
 //PROGRAM BEGINS HERE
@@ -1504,144 +1499,144 @@ int main() {
                     //-----------------------------------------------------------
                     case 's':
                         cout << "Enter your requested vehicle: (Spaces must be included)" << endl;
-                    cout << setw(2) << "[Purple Pickup]" << endl;
-                    cout << setw(2) << "[Red Compact]" << endl;
-                    cout << setw(2) << "[Blue Compact]" << endl;
-                    cout << setw(2) << "[Yellow Compact]" << endl;
-                    cout << setw(2) << "[Blue Sedan]" << endl;
-                    cout << setw(2) << "[Green Sedan]" << endl;
-                    cin.ignore();
-                    getline(cin, requestedVehicle);
+                        cout << setw(2) << "[Purple Pickup]" << endl;
+                        cout << setw(2) << "[Red Compact]" << endl;
+                        cout << setw(2) << "[Blue Compact]" << endl;
+                        cout << setw(2) << "[Yellow Compact]" << endl;
+                        cout << setw(2) << "[Blue Sedan]" << endl;
+                        cout << setw(2) << "[Green Sedan]" << endl;
+                        cin.ignore();
+                        getline(cin, requestedVehicle);
 
 
-                    for (int i = 0; i < requestedVehicle.length(); i++) {
-                        //Checks if the input is a one of the possible vehicles.
-                        if (isalpha(requestedVehicle.at(i)) || requestedVehicle.at(i) == ' ') {
-                            requestedVehicle.at(i) = tolower(requestedVehicle.at(i));
+                        for (int i = 0; i < requestedVehicle.length(); i++) {
+                            //Checks if the input is a one of the possible vehicles.
+                            if (isalpha(requestedVehicle.at(i)) || requestedVehicle.at(i) == ' ') {
+                                requestedVehicle.at(i) = tolower(requestedVehicle.at(i));
+                            } else {
+                                cout << "Error! Invalid Vehicle. Returning to Menu" << endl << endl;
+                                stillInCat = false;
+                                break;
+                            }
+                        }
+
+                        // TODO fill with driver location info
+
+                        if (requestedVehicle == "purple pickup") {
+                            outFs.open("output-files/purple_pickup.txt");
+                            if (!outFs.is_open()) {//Checks if the input file can be opened
+                                cout << "Unable to open file for output";
+                            } else {
+                                //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
+                                outFs << "Driver Seat: " << drivers[0] << endl;
+                                for (int i; i < playerList.size(); i++) {
+                                    if (playerList[i].getID() == 1) {
+                                        outFs << "Front Seat: " << playerList[i].getName() << endl;
+                                    }
+                                }
+                                outFs.close();//Closes the output file
+                            }
+
+                        } else if (requestedVehicle == "red compact") {
+                            outFs.open("output-files/red_compact.txt");
+                            if (!outFs.is_open()) {//Checks if the input file can be opened
+                                cout << "Unable to open file for output";
+                            } else {
+                                //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
+                                outFs << "Driver Seat: " << drivers[1] << endl;
+                                for (int i; i < playerList.size(); i++) {
+                                    if (playerList[i].getID() == 2) {
+                                        outFs << "Front Seat: " << playerList[i].getName() << endl;
+                                    } else if (playerList[i].getID() == 3) {
+                                        outFs << "Back Seat Left: " << playerList[i].getName() << endl;
+                                    } else if (playerList[i].getID() == 4) {
+                                        outFs << "Back Seat Right: " << playerList[i].getName() << endl;
+                                    }
+                                }
+                                outFs.close();//Closes the output file
+                            }
+                        } else if (requestedVehicle == "blue compact") {
+                            outFs.open("output-files/blue_compact.txt");
+                            if (!outFs.is_open()) {//Checks if the input file can be opened
+                                cout << "Unable to open file for output";
+                            } else {
+                                //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
+                                outFs << "Driver Seat: " << drivers[2] << endl;
+                                for (int i; i < playerList.size(); i++) {
+                                    if (playerList[i].getID() == 5) {
+                                        outFs << "Front Seat: " << playerList[i].getName() << endl;
+                                    } else if (playerList[i].getID() == 6) {
+                                        outFs << "Back Seat Left: " << playerList[i].getName() << endl;
+                                    } else if (playerList[i].getID() == 7) {
+                                        outFs << "Back Seat Right: " << playerList[i].getName() << endl;
+                                    }
+                                }
+                                outFs.close();//Closes the output file
+                            }
+                        } else if (requestedVehicle == "yellow compact") {
+                            outFs.open("output-files/yellow_compact.txt");
+                            if (!outFs.is_open()) {//Checks if the input file can be opened
+                                cout << "Unable to open file for output";
+                            } else {
+                                //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
+                                outFs << "Driver Seat: " << drivers[3] << endl;
+                                for (int i; i < playerList.size(); i++) {
+                                    if (playerList[i].getID() == 8) {
+                                        outFs << "Front Seat: " << playerList[i].getName() << endl;
+                                    } else if (playerList[i].getID() == 9) {
+                                        outFs << "Back Seat Left: " << playerList[i].getName() << endl;
+                                    } else if (playerList[i].getID() == 10) {
+                                        outFs << "Back Seat Right: " << playerList[i].getName() << endl;
+                                    }
+                                }
+                                outFs.close();//Closes the output file
+                            }
+                        } else if (requestedVehicle == "blue sedan") {
+                            outFs.open("output-files/blue_sedan.txt");
+                            if (!outFs.is_open()) {//Checks if the input file can be opened
+                                cout << "Unable to open file for output";
+                            } else {
+                                //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
+                                outFs << "Driver Seat: " << drivers[4] << endl;
+                                for (int i; i < playerList.size(); i++) {
+                                    if (playerList[i].getID() == 11) {
+                                        outFs << "Front Seat: " << playerList[i].getName() << endl;
+                                    } else if (playerList[i].getID() == 12) {
+                                        outFs << "Back Seat Left: " << playerList[i].getName() << endl;
+                                    } else if (playerList[i].getID() == 13) {
+                                        outFs << "Back Seat Middle: " << playerList[i].getName() << endl;
+                                    } else if (playerList[i].getID() == 14) {
+                                        outFs << "Back Seat Right: " << playerList[i].getName() << endl;
+                                    }
+                                }
+                                outFs.close();//Closes the output file
+                            }
+                        } else if (requestedVehicle == "green sedan") {
+                            outFs.open("output-files/green_sedan.txt");
+                            if (!outFs.is_open()) {//Checks if the input file can be opened
+                                cout << "Unable to open file for output";
+                            } else {
+                                //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
+                                outFs << "Driver Seat: " << drivers[5] << endl;
+                                for (int i; i < playerList.size(); i++) {
+                                    if (playerList[i].getID() == 15) {
+                                        outFs << "Front Seat: " << playerList[i].getName() << endl;
+                                    } else if (playerList[i].getID() == 16) {
+                                        outFs << "Back Seat Left: " << playerList[i].getName() << endl;
+                                    } else if (playerList[i].getID() == 17) {
+                                        outFs << "Back Seat Middle: " << playerList[i].getName() << endl;
+                                    } else if (playerList[i].getID() == 18) {
+                                        outFs << "Back Seat Right: " << playerList[i].getName() << endl;
+                                    }
+                                }
+                                outFs.close();//Closes the output file
+                            }
                         } else {
                             cout << "Error! Invalid Vehicle. Returning to Menu" << endl << endl;
                             stillInCat = false;
-                            break;
-                        }
-                    }
-
-                    // TODO fill with driver location info
-
-                    if (requestedVehicle == "purple pickup") {
-                        outFs.open("output-files/purple_pickup.txt");
-                        if (!outFs.is_open()) {//Checks if the input file can be opened
-                            cout << "Unable to open file for output";
-                        } else {
-                            //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
-                            outFs << "Driver Seat: " << drivers[0] << endl;
-                            for (int i; i < playerList.size(); i++) {
-                                if (playerList[i].getID() == 1) {
-                                    outFs << "Front Seat: " << playerList[i].getName() << endl;
-                                }
-                            }
-                            outFs.close();//Closes the output file
                         }
 
-                    } else if (requestedVehicle == "red compact") {
-                        outFs.open("output-files/red_compact.txt");
-                        if (!outFs.is_open()) {//Checks if the input file can be opened
-                            cout << "Unable to open file for output";
-                        } else {
-                            //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
-                            outFs << "Driver Seat: " << drivers[1] << endl;
-                            for (int i; i < playerList.size(); i++) {
-                                if (playerList[i].getID() == 2) {
-                                    outFs << "Front Seat: " << playerList[i].getName() << endl;
-                                } else if (playerList[i].getID() == 3) {
-                                    outFs << "Back Seat Left: " << playerList[i].getName() << endl;
-                                } else if (playerList[i].getID() == 4) {
-                                    outFs << "Back Seat Right: " << playerList[i].getName() << endl;
-                                }
-                            }
-                            outFs.close();//Closes the output file
-                        }
-                    } else if (requestedVehicle == "blue compact") {
-                        outFs.open("output-files/blue_compact.txt");
-                        if (!outFs.is_open()) {//Checks if the input file can be opened
-                            cout << "Unable to open file for output";
-                        } else {
-                            //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
-                            outFs << "Driver Seat: " << drivers[2] << endl;
-                            for (int i; i < playerList.size(); i++) {
-                                if (playerList[i].getID() == 5) {
-                                    outFs << "Front Seat: " << playerList[i].getName() << endl;
-                                } else if (playerList[i].getID() == 6) {
-                                    outFs << "Back Seat Left: " << playerList[i].getName() << endl;
-                                } else if (playerList[i].getID() == 7) {
-                                    outFs << "Back Seat Right: " << playerList[i].getName() << endl;
-                                }
-                            }
-                            outFs.close();//Closes the output file
-                        }
-                    } else if (requestedVehicle == "yellow compact") {
-                        outFs.open("output-files/yellow_compact.txt");
-                        if (!outFs.is_open()) {//Checks if the input file can be opened
-                            cout << "Unable to open file for output";
-                        } else {
-                            //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
-                            outFs << "Driver Seat: " << drivers[3] << endl;
-                            for (int i; i < playerList.size(); i++) {
-                                if (playerList[i].getID() == 8) {
-                                    outFs << "Front Seat: " << playerList[i].getName() << endl;
-                                } else if (playerList[i].getID() == 9) {
-                                    outFs << "Back Seat Left: " << playerList[i].getName() << endl;
-                                } else if (playerList[i].getID() == 10) {
-                                    outFs << "Back Seat Right: " << playerList[i].getName() << endl;
-                                }
-                            }
-                            outFs.close();//Closes the output file
-                        }
-                    } else if (requestedVehicle == "blue sedan") {
-                        outFs.open("output-files/blue_sedan.txt");
-                        if (!outFs.is_open()) {//Checks if the input file can be opened
-                            cout << "Unable to open file for output";
-                        } else {
-                            //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
-                            outFs << "Driver Seat: " << drivers[4] << endl;
-                            for (int i; i < playerList.size(); i++) {
-                                if (playerList[i].getID() == 11) {
-                                    outFs << "Front Seat: " << playerList[i].getName() << endl;
-                                } else if (playerList[i].getID() == 12) {
-                                    outFs << "Back Seat Left: " << playerList[i].getName() << endl;
-                                } else if (playerList[i].getID() == 13) {
-                                    outFs << "Back Seat Middle: " << playerList[i].getName() << endl;
-                                } else if (playerList[i].getID() == 14) {
-                                    outFs << "Back Seat Right: " << playerList[i].getName() << endl;
-                                }
-                            }
-                            outFs.close();//Closes the output file
-                        }
-                    } else if (requestedVehicle == "green sedan") {
-                        outFs.open("output-files/green_sedan.txt");
-                        if (!outFs.is_open()) {//Checks if the input file can be opened
-                            cout << "Unable to open file for output";
-                        } else {
-                            //outFs << "DRIVER" << endl; FILL WITH DRIVER LOCATION
-                            outFs << "Driver Seat: " << drivers[5] << endl;
-                            for (int i; i < playerList.size(); i++) {
-                                if (playerList[i].getID() == 15) {
-                                    outFs << "Front Seat: " << playerList[i].getName() << endl;
-                                } else if (playerList[i].getID() == 16) {
-                                    outFs << "Back Seat Left: " << playerList[i].getName() << endl;
-                                } else if (playerList[i].getID() == 17) {
-                                    outFs << "Back Seat Middle: " << playerList[i].getName() << endl;
-                                } else if (playerList[i].getID() == 18) {
-                                    outFs << "Back Seat Right: " << playerList[i].getName() << endl;
-                                }
-                            }
-                            outFs.close();//Closes the output file
-                        }
-                    } else {
-                        cout << "Error! Invalid Vehicle. Returning to Menu" << endl << endl;
-                        stillInCat = false;
-                    }
-
-                    break;
+                        break;
                     //-----------------------------------------------------------
 
                     //----------Print Reservations

@@ -12,7 +12,7 @@ Player::Player(){
 }
 
 // This constructor is used for main to be able to create a player with wanted data
-Player::Player(string name, Seat SeatAssignment){
+Player::Player(string name, Seat seatAssignment){
     this->name = name;
     this->seatAssignment = seatAssignment;
 }
@@ -21,7 +21,6 @@ Player::Player(string name, Seat SeatAssignment){
 int Player::getID() {
     return ID;
 }
-
 string Player::getName(){
     return name;
 }
