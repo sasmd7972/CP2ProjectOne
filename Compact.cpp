@@ -23,3 +23,21 @@ Compact::Compact(Color color) {
     setupMySeats(BackSeatR2);
     setMyFill(seatAmount);
 }
+
+/*void Compact::PrintCompact(){
+    if ( color == 0){
+        cout << "RED" << endl;
+    }
+    else if( color == 1){
+        cout << "BLUE" << endl;
+    }
+    else if( color == 2){
+        cout << "GREEN" << endl;
+    }
+    else if( color == 3){
+        cout << "YELLOW" << endl;
+    }
+    else if( color == 4){
+        cout << "PURPLE" << endl;
+    }
+}*/

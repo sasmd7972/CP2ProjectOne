@@ -73,7 +73,7 @@ public:
     //Get Functions
     vector< Seat > GetMySeats();
     vector< bool > GetFilled();
-    int getSeatAmount();
+    int GetSeatAmount();
 
     //Utility Functions
     bool isFull(Seat seat);

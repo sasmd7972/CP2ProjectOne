@@ -49,7 +49,7 @@ vector< Seat > Vehicle::GetMySeats() {
 vector< bool > Vehicle::GetFilled() {
     return filled;
 }
-int Vehicle::getSeatAmount(){
+int Vehicle::GetSeatAmount(){
     return seatAmount;
 }
 
