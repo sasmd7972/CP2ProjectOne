@@ -119,12 +119,12 @@ int main() {
     //----------Creates the Vehicle Objects
     //-----------------------------------------------------------
 
-        vector<Vehicle> VehicleList(6);
-        vector<Compact> CompactVect();
+        vector<Pickup> PickUpList(6);
+        vector<Compact> CompactList(3);
+        vector<Sedan> SedanList(6);
 
         Pickup purplePickup;
         purplePickup = Pickup(PURPLE);
-
 
         Compact redCompact;
         redCompact = Compact(RED);
@@ -133,18 +133,17 @@ int main() {
         Compact yellowCompact;
         yellowCompact = Compact(YELLOW);
 
-
         Sedan blueSedan;
         blueSedan = Sedan(BLUE);
         Sedan greenSedan;
         greenSedan = Sedan(GREEN);
 
-        VehicleList[0] = purplePickup;
-        VehicleList[1] = redCompact;
-        VehicleList[2] = blueCompact;
-        VehicleList[3] = yellowCompact;
-        VehicleList[4] = blueSedan;
-        VehicleList[5] = greenSedan;
+        PickUpList[0] = purplePickup;
+        CompactList[0] = redCompact;
+        CompactList[1] = blueCompact;
+        CompactList[2] = yellowCompact;
+        SedanList[0] = blueSedan;
+        SedanList[1] = greenSedan;
 
     cout << "Welcome to the RIT Quidditch Team Reservation System" << endl;//Out of do loop so they don't have to see message multiple times.
 //---------------------------------------------------------
@@ -1021,26 +1020,25 @@ int main() {
                 //-----------------------------------------------------------
 
             case 'v':
-                for ( int i = 0; i < VehicleList.size();i++) {
-                    if (VehicleList[i].getSeatAmount() == 2) {
-                        cout << "Truck" << endl;
-                        cout << "-----" << endl;
-                        VehicleList[i].printVehicle();
-                        cout << endl;
-                    }
-                    else if (VehicleList[i].getSeatAmount() == 4) {
-                        cout << "Sedan" << endl;
-                        cout << "-------" << endl;
-                        VehicleList[i].printVehicle();
-                        cout << endl;
-                    }
-                    if (VehicleList[i].getSeatAmount() == 5) {
-                        cout << "Compact" << endl;
-                        cout << "-------" << endl;
-                        VehicleList[i].printVehicle();
-                        cout << endl;
-                    }
-                }
+
+                cout << "Truck" << endl;
+                cout << "-----" << endl;
+                PickUpList[0].printVehicle();
+                cout << endl;
+
+                cout << "Compact" << endl;
+                cout << "-------" << endl;
+                CompactList[0].printVehicle();
+                CompactList[1].printVehicle();
+                CompactList[2].printVehicle();
+                cout << endl;
+
+                cout << "Sedan" << endl;
+                cout << "-------" << endl;
+                SedanList[0].printVehicle();
+                SedanList[1].printVehicle();
+                cout << endl;
+
                 break;
 
                 //-----------------------------------------------------------

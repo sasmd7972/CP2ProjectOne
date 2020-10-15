@@ -17,18 +17,9 @@ void Vehicle::setColor(Color color){
 }
 
 // This is very specific that you enter seat in order
-void Vehicle::setupMySeats(Seat seat){
+void Vehicle::setupMySeats(Seat seat, bool seatBool){
     mySeats.push_back(seat);
-}
-
-void Vehicle::setMyFill( int seatAmount){
-    for ( int i = 0; i < seatAmount; i++){
-        if ( i == 0){
-            filled.push_back(true);
-        } else {
-            filled.push_back(false);
-        }
-    }
+    filled.push_back(seatBool);
 }
 
 void Vehicle::setSeat(Player player, Seat seat) {

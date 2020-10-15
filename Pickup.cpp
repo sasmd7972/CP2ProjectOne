@@ -6,16 +6,14 @@
 
 Pickup::Pickup(){
     setColor(RED);
-    setupMySeats(DriverSeat);
-    setupMySeats(FrontSeat5);
-    setMyFill(2);
+    setupMySeats(DriverSeat, true);
+    setupMySeats(FrontSeat5, false);
 }
 
 Pickup::Pickup(Color color) {
     setColor(color);
-    setupMySeats(DriverSeat);
-    setupMySeats(FrontSeat5);
-    setMyFill(2);
+    setupMySeats(DriverSeat, true);
+    setupMySeats(FrontSeat5, false);
 }
 
 /*

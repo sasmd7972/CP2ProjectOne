@@ -6,20 +6,18 @@
 
 Sedan::Sedan(){
     setColor(RED);
-    setupMySeats(DriverSeat);
-    setupMySeats(FrontSeat5);
-    setupMySeats(BackSeatL3);
-    setupMySeats(BackSeatR3);
-    setMyFill(seatAmount);
+    setupMySeats(DriverSeat, true);
+    setupMySeats(FrontSeat5, false);
+    setupMySeats(BackSeatL3, false);
+    setupMySeats(BackSeatR3, false);
 }
 
 Sedan::Sedan(Color color) {
     setColor(color);
-    setupMySeats(DriverSeat);
-    setupMySeats(FrontSeat5);
-    setupMySeats(BackSeatL3);
-    setupMySeats(BackSeatR3);
-    setMyFill(seatAmount);
+    setupMySeats(DriverSeat, true);
+    setupMySeats(FrontSeat5, false);
+    setupMySeats(BackSeatL3, false);
+    setupMySeats(BackSeatR3, false);
 }
 
 /*

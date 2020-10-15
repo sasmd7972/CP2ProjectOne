@@ -6,22 +6,20 @@
 
 Compact::Compact(){
     setColor(RED);
-    setupMySeats(DriverSeat);
-    setupMySeats(FrontSeat5);
-    setupMySeats(BackSeatL2);
-    setupMySeats(BackSeatM1);
-    setupMySeats(BackSeatR2);
-    setMyFill(seatAmount);
+    setupMySeats(DriverSeat, true);
+    setupMySeats(FrontSeat5, false);
+    setupMySeats(BackSeatL2, false);
+    setupMySeats(BackSeatM1, false);
+    setupMySeats(BackSeatR2, false);
 }
 
 Compact::Compact(Color color) {
     setColor(color);
-    setupMySeats(DriverSeat);
-    setupMySeats(FrontSeat5);
-    setupMySeats(BackSeatL2);
-    setupMySeats(BackSeatM1);
-    setupMySeats(BackSeatR2);
-    setMyFill(seatAmount);
+    setupMySeats(DriverSeat, true);
+    setupMySeats(FrontSeat5, false);
+    setupMySeats(BackSeatL2, false);
+    setupMySeats(BackSeatM1, false);
+    setupMySeats(BackSeatR2, false);
 }
 
 /*void Compact::PrintCompact(){

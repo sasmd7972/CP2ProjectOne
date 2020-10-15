@@ -66,9 +66,8 @@ public:
 
     //Set Functions
     void setColor(Color color);
-    void setupMySeats(Seat seat);
-    void setMyFill(int seatAmount);
-    void setSeat(Player,Seat);
+    void setupMySeats(Seat seat, bool seatBool);
+    void setSeat(Player player,Seat seat);
 
     //Get Functions
     vector< Seat > GetMySeats();
