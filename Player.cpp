@@ -55,82 +55,83 @@ void Player::setID(Player player, int ID) {
 //Reservation Functions
 
 // This creates the reservation
-void Player::createReservation(Player player, Seat seatAssignment, int ID){
+void Player::createReservation(Seat seatAssignment, int ID){
+     this->ID = ID;
     // These take of care of the values system of the seatAssignments
     if (seatAssignment == FrontSeat5){
-        player.seatCredit = player.seatCredit - 5;
+        this->seatCredit = this->seatCredit - 5;
     }
     else if( seatAssignment== BackSeatL3 ||  seatAssignment== BackSeatR3 ){
-        player.seatCredit = player.seatCredit - 3;
+        this->seatCredit = this->seatCredit - 3;
     }
     else if( seatAssignment== BackSeatL2 ||  seatAssignment== BackSeatR2 ){
-        player.seatCredit = player.seatCredit - 2;
+        this->seatCredit = this->seatCredit - 2;
     }
     else{
-        player.seatCredit = player.seatCredit - 1;
+        this->seatCredit = this->seatCredit - 1;
     }
     //Give player set ID
-    player.setID(player,ID);
+
 }
 
 // Get player gets new seat assignment and recounts the seat credit
 // ID doesn't change since there is no need
-void Player::modifyReservation(Player player, Seat seatAssignment, int ID){
+void Player::modifyReservation(Seat seatAssignment, int ID){
     // Gives the player back the seat credit from old seat assignment
-    if ( player.getSeatAssignment() == FrontSeat5){
-        player.seatCredit = player.seatCredit + 5;
+    if ( this->getSeatAssignment() == FrontSeat5){
+        this->seatCredit = this->seatCredit + 5;
     }
-    else if( player.getSeatAssignment()== BackSeatL3 ||  seatAssignment== BackSeatR3 ){
-        player.seatCredit = player.seatCredit + 3;
+    else if( this->getSeatAssignment()== BackSeatL3 ||  seatAssignment== BackSeatR3 ){
+        this->seatCredit = this->seatCredit + 3;
     }
-    else if( player.getSeatAssignment()== BackSeatL2 ||  seatAssignment== BackSeatR2 ){
-        player.seatCredit = player.seatCredit + 2;
+    else if( this->getSeatAssignment()== BackSeatL2 ||  seatAssignment== BackSeatR2 ){
+        this->seatCredit = this->seatCredit + 2;
     }
     else{
-        player.seatCredit = player.seatCredit + 1;
+        this->seatCredit = this->seatCredit + 1;
     }
 
     //Assigns the new seat assignment
-    player.seatAssignment = seatAssignment;
-    player.setID(player,ID);
+    this->seatAssignment = seatAssignment;
+    this->ID = ID;
 
     //Counts for the new seat assignment cost
     if (seatAssignment == FrontSeat5){
-        player.seatCredit = player.seatCredit - 5;
+        this->seatCredit = this->seatCredit - 5;
     }
     else if( seatAssignment== BackSeatL3 ||  seatAssignment== BackSeatR3 ){
-        player.seatCredit = player.seatCredit - 3;
+        this->seatCredit = this->seatCredit - 3;
     }
     else if( seatAssignment== BackSeatL2 ||  seatAssignment== BackSeatR2 ){
-        player.seatCredit = player.seatCredit - 2;
+        this->seatCredit = this->seatCredit - 2;
     }
     else{
-        player.seatCredit = player.seatCredit - 1;
+        this->seatCredit = this->seatCredit - 1;
     }
 }
 
-void Player::deleteReservation(Player player, Seat seatAssignment){
+void Player::deleteReservation(Seat seatAssignment){
     // credits the player back for canceled reservation
-    if ( player.seatAssignment == FrontSeat5){
-        player.seatCredit = player.seatCredit + 5;
+    if ( this->seatAssignment == FrontSeat5){
+        this->seatCredit = this->seatCredit + 5;
     }
-    else if( player.seatAssignment== BackSeatL3 ||  seatAssignment== BackSeatR3 ){
-        player.seatCredit = player.seatCredit + 3;
+    else if( this->seatAssignment== BackSeatL3 ||  seatAssignment== BackSeatR3 ){
+        this->seatCredit = this->seatCredit + 3;
     }
-    else if( player.seatAssignment== BackSeatL2 ||  seatAssignment== BackSeatR2 ){
-        player.seatCredit = player.seatCredit + 2;
+    else if( this->seatAssignment== BackSeatL2 ||  seatAssignment== BackSeatR2 ){
+        this->seatCredit = this->seatCredit + 2;
     }
     else{
-        player.seatCredit = player.seatCredit + 1;
+        this->seatCredit = this->seatCredit + 1;
     }
 
     //Go to default settings
-    player.seatAssignment = DriverSeat;
-    player.ID = 99;
+    this->seatAssignment = DriverSeat;
+    this->ID = 99;
 
     //Deletes the ID from IDmemory
     for(int & i : IDmemory) {
-        if ( i == player.ID ){
+        if ( i == this->ID ){
             i = 0;
         }
     }
