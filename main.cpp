@@ -1024,7 +1024,6 @@ int main() {
                 cout << "Truck" << endl;
                 cout << "-----" << endl;
                 PickUpList[0].printVehicle();
-                cout << endl;
 
                 cout << "Compact" << endl;
                 cout << "-------" << endl;

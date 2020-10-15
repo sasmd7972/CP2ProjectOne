@@ -69,14 +69,21 @@ void Vehicle::printVehicle(){
     for (int i  = 0; i  < filled.size(); ++i ) {
         if (mySeats[i] == DriverSeat) {
             cout << "(-)";
-        } else {
+        }else if(mySeats[i] == FrontSeat5 && filled[i] == false){
+            cout << "(x)" << endl;
+        }
+        else {
             if (filled[i] == true) {
                 if (mySeats[i] == FrontSeat5) {
                     cout << "(5)" << endl;
-                } else if (mySeats[i] == BackSeatL3 || mySeats[i] == BackSeatR3) {
+                } else if (mySeats[i] == BackSeatL3) {
                     cout << "(3)";
-                } else if (mySeats[i] == BackSeatL2 || mySeats[i] == BackSeatR2) {
+                } else if(mySeats[i] == BackSeatR3){
+                    cout << "(3)" << endl;
+                } else if (mySeats[i] == BackSeatL2) {
                     cout << "(2)";
+                } else if ( mySeats[i] == BackSeatR2) {
+                    cout << "(2)" << endl;
                 } else if (mySeats[i] == BackSeatM1) {
                     cout << "(1)";
                 } else {
