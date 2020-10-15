@@ -79,16 +79,16 @@ void Player::createReservation(Seat seatAssignment, int ID){
 void Player::modifyReservation(Seat seatAssignment, int ID){
     // Gives the player back the seat credit from old seat assignment
     if ( this->getSeatAssignment() == FrontSeat5){
-        this->seatCredit = this->seatCredit + 5;
+        this->seatCredit = (this->seatCredit + 5);
     }
     else if( this->getSeatAssignment()== BackSeatL3 ||  seatAssignment== BackSeatR3 ){
-        this->seatCredit = this->seatCredit + 3;
+        this->seatCredit = (this->seatCredit + 3);
     }
     else if( this->getSeatAssignment()== BackSeatL2 ||  seatAssignment== BackSeatR2 ){
-        this->seatCredit = this->seatCredit + 2;
+        this->seatCredit = (this->seatCredit + 2);
     }
     else{
-        this->seatCredit = this->seatCredit + 1;
+        this->seatCredit = (this->seatCredit + 1);
     }
 
     //Assigns the new seat assignment
@@ -97,32 +97,32 @@ void Player::modifyReservation(Seat seatAssignment, int ID){
 
     //Counts for the new seat assignment cost
     if (seatAssignment == FrontSeat5){
-        this->seatCredit = this->seatCredit - 5;
+        this->seatCredit = (this->seatCredit - 5);
     }
     else if( seatAssignment== BackSeatL3 ||  seatAssignment== BackSeatR3 ){
-        this->seatCredit = this->seatCredit - 3;
+        this->seatCredit = (this->seatCredit - 3);
     }
     else if( seatAssignment== BackSeatL2 ||  seatAssignment== BackSeatR2 ){
-        this->seatCredit = this->seatCredit - 2;
+        this->seatCredit = (this->seatCredit - 2);
     }
     else{
-        this->seatCredit = this->seatCredit - 1;
+        this->seatCredit = (this->seatCredit - 1);
     }
 }
 
 void Player::deleteReservation(Seat seatAssignment){
     // credits the player back for canceled reservation
     if ( this->seatAssignment == FrontSeat5){
-        this->seatCredit = this->seatCredit + 5;
+        this->seatCredit = (this->seatCredit + 5);
     }
     else if( this->seatAssignment== BackSeatL3 ||  seatAssignment== BackSeatR3 ){
-        this->seatCredit = this->seatCredit + 3;
+        this->seatCredit = (this->seatCredit + 3);
     }
     else if( this->seatAssignment== BackSeatL2 ||  seatAssignment== BackSeatR2 ){
-        this->seatCredit = this->seatCredit + 2;
+        this->seatCredit = (this->seatCredit + 2);
     }
     else{
-        this->seatCredit = this->seatCredit + 1;
+        this->seatCredit = (this->seatCredit + 1);
     }
 
     //Go to default settings
