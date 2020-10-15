@@ -1028,13 +1028,16 @@ int main() {
                 cout << "Compact" << endl;
                 cout << "-------" << endl;
                 CompactList[0].printVehicle();
+                cout << endl;
                 CompactList[1].printVehicle();
+                cout << endl;
                 CompactList[2].printVehicle();
                 cout << endl;
 
                 cout << "Sedan" << endl;
                 cout << "-------" << endl;
                 SedanList[0].printVehicle();
+                cout << endl;
                 SedanList[1].printVehicle();
                 cout << endl;
 
