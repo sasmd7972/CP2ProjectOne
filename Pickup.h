@@ -15,8 +15,5 @@ private:
 public:
     Pickup();
     Pickup(Color color);
-
-    //void PrintPickUp();
-
 };
 #endif //PROJECT_ONE_PICKUP_H

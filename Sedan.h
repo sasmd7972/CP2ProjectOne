@@ -15,7 +15,5 @@ class Sedan : public Vehicle {
     public:
         Sedan();
         Sedan(Color color);
-
-        //void PrintSedan();
 };
 #endif //PROJECT_ONE_SEDAN_H

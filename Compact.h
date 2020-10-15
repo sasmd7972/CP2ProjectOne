@@ -15,7 +15,5 @@ private:
 public:
     Compact();
     Compact(Color color);
-
-    //void PrintCompact();
 };
 #endif //PROJECT_ONE_COMPACT_H

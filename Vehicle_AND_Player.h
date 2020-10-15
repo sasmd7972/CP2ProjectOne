@@ -61,9 +61,6 @@ protected:
 public:
     // Has to be public due to the Player accessing this
 
-    // Makes a vehicle with color red and one seat for driver seat
-    Vehicle();
-
     //Set Functions
     void setColor(Color color);
     void setupMySeats(Seat seat, bool seatBool);

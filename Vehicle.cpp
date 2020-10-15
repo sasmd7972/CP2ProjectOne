@@ -4,13 +4,6 @@
 
 #include "Vehicle_AND_Player.h"
 
-Vehicle::Vehicle(){
-    color = RED;
-    seatAmount = 1;
-    mySeats.push_back(DriverSeat);
-    filled.push_back(true);
-}
-
 //Set Functions
 void Vehicle::setColor(Color color){
     this->color = color;
