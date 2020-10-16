@@ -19,11 +19,7 @@ enum Color {RED,BLUE,GREEN,YELLOW,PURPLE};
 class Player {
 protected:
     int ID;
-    //This is an array of the ID numbers of the reservations
-    static const int memorySize = 100;
-    int IDmemory[memorySize];
     string name;
-
     int seatCredit;
     Seat seatAssignment;
 
@@ -36,6 +32,7 @@ public:
     int getID();
     string getName();
     Seat getSeatAssignment();
+    int getCredits();
 
     //Set Functions
     void setSeatAssignment(Player player, Seat seatAssignment);
@@ -48,8 +45,6 @@ public:
     void createReservation(Seat seatAssignment, int ID);
     void modifyReservation(Seat seatAssignment, int ID);
     void deleteReservation(Seat seatAssignment);
-
-    int getCredits();
 };
 
 class Vehicle {

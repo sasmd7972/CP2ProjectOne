@@ -9,8 +9,6 @@
 #include "Sedan.h"
 #include "Compact.h"
 
-
-
 using namespace std;
 
 int main() {
@@ -44,7 +42,6 @@ int main() {
     int userIDIn = 99;
 
 
-
 //----------Player Variables and Vectors
 //-----------------------------------------------------------
     string userName = "BLANK";
@@ -61,17 +58,10 @@ int main() {
     string requestedVehicle = "BLANK";
     string requestedSeat = "BLANK";
 
-//----------OTHERS & MISC
-//-----------------------------------------------------------
-
-
-
-
 //----------Admin Variables
 //-----------------------------------------------------------
     const string adminPass = "AdminPassword";//Only used by admin to view reservations. Temporary
     string adminIn = "BLANK";//test
-
 
 
 //-----------------------------------------------------------
@@ -201,7 +191,6 @@ int main() {
         menuChoice = tolower(menuChoice);
 
         switch (menuChoice) {//Determines which of the menu options was chosen, if any
-
 
             //----------Creates Reservation
             //-----------------------------------------------------------

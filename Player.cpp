@@ -34,18 +34,6 @@ void Player::setSeatAssignment(Player player, Seat seatAssignment) {
 }
 
 //Utility Functions
-bool Player::contains(int temp) {
-    bool notIn = true;
-
-    for(int i : IDmemory){
-        if (i != temp) {
-            notIn = true;
-        }
-        else
-            notIn = false;
-    }
-    return notIn;
-}
 
 void Player::setID(Player player, int ID) {
     player.ID = ID;
@@ -127,13 +115,6 @@ void Player::deleteReservation(Seat seatAssignment){
     //Go to default settings
     this->seatAssignment = DriverSeat;
     this->ID = 99;
-
-    //Deletes the ID from IDmemory
-    for(int & i : IDmemory) {
-        if ( i == this->ID ){
-            i = 0;
-        }
-    }
 }
 
 int Player::getCredits() {

@@ -24,7 +24,6 @@ void Vehicle::setSeat(Player player, Seat seat) {
     }
 }
 
-
 //Get Functions
 vector< Seat > Vehicle::GetMySeats() {
     return mySeats;
