@@ -26,7 +26,7 @@ protected:
 public:
     //Constructors
     Player();
-    Player(string name, Seat SeatAssignment);
+    Player(string name,Seat SeatAssignment);
 
     //Get Functions
     int getID();

@@ -21,6 +21,9 @@ Player::Player(string name, Seat seatAssignment){
 int Player::getID() {
     return this->ID;
 }
+int Player::getCredits() {
+    return this-> seatCredit;
+}
 string Player::getName(){
     return this->name;
 }
@@ -115,8 +118,4 @@ void Player::deleteReservation(Seat seatAssignment){
     //Go to default settings
     this->seatAssignment = DriverSeat;
     this->ID = 99;
-}
-
-int Player::getCredits() {
-        return this-> seatCredit;
 }
